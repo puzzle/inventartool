@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  model: MyString
+  processor: MyString
+  purchase_date: 2011-02-24
+  warranty_till: 2011-02-24
+  rack_units: 1
+  serial_number: MyString
+  price: 9.99
+  notes: MyText
+  distributor: 
+
+two:
+  model: MyString
+  processor: MyString
+  purchase_date: 2011-02-24
+  warranty_till: 2011-02-24
+  rack_units: 1
+  serial_number: MyString
+  price: 9.99
+  notes: MyText
+  distributor: 
