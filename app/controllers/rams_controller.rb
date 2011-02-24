@@ -1,0 +1,2 @@
+class RamsController < CrudController
+end
