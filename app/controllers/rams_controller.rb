@@ -1,2 +1,0 @@
-class RamsController < CrudController
-end
