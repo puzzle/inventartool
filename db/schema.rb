@@ -10,10 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110225102954) do
+ActiveRecord::Schema.define(:version => 20110225110638) do
 
   create_table "distributors", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rams", :force => true do |t|
+    t.integer  "capacity"
+    t.string   "description"
+    t.integer  "machine_id"
+    t.string   "machine_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
