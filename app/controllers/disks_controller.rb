@@ -1,0 +1,2 @@
+class DisksController < CrudController
+end

@@ -17,6 +17,7 @@ resources :distributors
 resources :rams
 resources :displays
 resources :owners
+resources :disks
   # Sample resource route with options:
   #   resources :products do
   #     member do
