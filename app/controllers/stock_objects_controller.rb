@@ -1,0 +1,2 @@
+class StockObjectsController < CrudController
+end

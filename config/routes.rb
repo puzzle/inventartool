@@ -18,6 +18,8 @@ resources :rams
 resources :displays
 resources :owners
 resources :disks
+
+resources :stock_objects
   # Sample resource route with options:
   #   resources :products do
   #     member do
