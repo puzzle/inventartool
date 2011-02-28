@@ -15,6 +15,8 @@ InventarTool::Application.routes.draw do
 resources :servers
 resources :distributors
 resources :rams
+resources :displays
+resources :owners
   # Sample resource route with options:
   #   resources :products do
   #     member do

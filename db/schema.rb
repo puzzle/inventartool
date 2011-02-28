@@ -10,9 +10,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110225110638) do
+ActiveRecord::Schema.define(:version => 20110228103803) do
+
+  create_table "displays", :force => true do |t|
+    t.decimal  "price",          :precision => 8, :scale => 2
+    t.date     "purchase_date"
+    t.string   "serial_number"
+    t.string   "model"
+    t.text     "notes"
+    t.integer  "distributor_id"
+    t.integer  "owner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "distributors", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "owners", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

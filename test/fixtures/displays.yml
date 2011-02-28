@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  price: 9.99
+  purchase_date: 2011-02-28
+  serial_number: MyString
+  model: MyString
+  notes: MyText
+  distributor: 
+  owner: 
+
+two:
+  price: 9.99
+  purchase_date: 2011-02-28
+  serial_number: MyString
+  model: MyString
+  notes: MyText
+  distributor: 
+  owner: 

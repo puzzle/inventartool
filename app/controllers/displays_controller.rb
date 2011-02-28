@@ -1,0 +1,2 @@
+class DisplaysController < CrudController
+end
