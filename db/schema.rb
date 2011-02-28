@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110228105632) do
+ActiveRecord::Schema.define(:version => 20110228110821) do
 
   create_table "disks", :force => true do |t|
     t.string   "model"
@@ -42,6 +42,28 @@ ActiveRecord::Schema.define(:version => 20110228105632) do
 
   create_table "distributors", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notebooks", :force => true do |t|
+    t.string   "model"
+    t.string   "processor"
+    t.string   "serial_number"
+    t.string   "service_tag"
+    t.string   "express_service_code"
+    t.decimal  "price",                      :precision => 8, :scale => 2
+    t.date     "purchase_date"
+    t.date     "warranty_till"
+    t.date     "owner_changed_on"
+    t.string   "previous_owner"
+    t.string   "battery_serial_number"
+    t.string   "power_supply_serial_number"
+    t.string   "mac_addr_lan"
+    t.string   "mac_addr_wlan"
+    t.text     "notes"
+    t.integer  "distributor_id"
+    t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

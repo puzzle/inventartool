@@ -1,0 +1,37 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  model: MyString
+  processor: MyString
+  serial_number: MyString
+  service_tag: MyString
+  express_service_code: MyString
+  price: 9.99
+  purchase_date: 2011-02-28
+  warranty_till: 2011-02-28
+  owner_changed_on: 2011-02-28
+  previous_owner: MyString
+  battery_serial_number: MyString
+  power_supply_serial_number: MyString
+  mac_addr_lan: MyString
+  mac_addr_wlan: MyString
+  notes: MyText
+  distributor: 
+
+two:
+  model: MyString
+  processor: MyString
+  serial_number: MyString
+  service_tag: MyString
+  express_service_code: MyString
+  price: 9.99
+  purchase_date: 2011-02-28
+  warranty_till: 2011-02-28
+  owner_changed_on: 2011-02-28
+  previous_owner: MyString
+  battery_serial_number: MyString
+  power_supply_serial_number: MyString
+  mac_addr_lan: MyString
+  mac_addr_wlan: MyString
+  notes: MyText
+  distributor: 
