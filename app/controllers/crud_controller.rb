@@ -50,6 +50,10 @@ class CrudController < ListController
   #   GET /entries/new
   #   GET /entries/new.xml
   def new
+    @servers = Server.all
+    @notebooks = Notebook.all
+    @owners = Owner.all
+    @distributors = Distributor.all
     @entry.attributes = params[model_identifier]
     respond_with @entry
   end

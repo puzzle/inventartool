@@ -12,12 +12,40 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :model %><br />
+    <%= f.text_field :model %>
+  </div>
+  <div class="field">
+    <%= f.label :serial_number %><br />
+    <%= f.text_field :serial_number %>
+  </div>
+  <div class="field">
+    <%= f.label :purchase_date %><br />
+    <%= f.date_select :purchase_date %>
+  </div>
+  <div class="field">
+    <%= f.label :warranty_till %><br />
+    <%= f.date_select :warranty_till %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.number_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br />
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
     <%= f.label :capacity %><br />
     <%= f.text_field :capacity %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.label :connector %><br />
+    <%= f.text_field :connector %>
+  </div>
+  <div class="field">
+    <%= f.label :distributor %><br />
+    <%= f.collection_select(:distributor_id, @distributors, :id, :name) %>
   </div>
   <div class="field">
     <%= f.label :machine_type %><br />
@@ -32,8 +60,7 @@
 			}
     	}
 	<% end -%>
-  </div>
-  <div style="height:35px;">
+	<div style="height:35px;">
   <div id="Server" class="field" style="display:none;">
     <%= f.label "Servers" %><br />
     <%= f.collection_select(:machine_id, @servers, :id, :model) %>
@@ -42,6 +69,12 @@
     <%= f.label "Notebooks" %><br />
     <%= f.collection_select(:machine_id, @notebooks, :id, :model) %>
   </div>
+  </div>
+  </div>
+  <%= @entry %>
+  <div id="Server" class="field" style="display:none;">
+    <%= f.label "Servers" %><br />
+    <%= f.collection_select(:machine_id, @servers, :id, :model) %>
   </div>
   <div class="actions">
     <%= f.submit %>
