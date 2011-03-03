@@ -49,33 +49,13 @@
   </div>
   <div class="field">
     <%= f.label :machine_type %><br />
- 	<%= select("disk", :machine_type, @machine_types, {:prompt => 'Select Machine Type', :selected => @entry.machine_type }, :onchange => 'refreshMachineChoice(this);') %>
-    <%= javascript_tag :defer => 'defer' do -%>
-    	function refreshMachineChoice(select_tag) {
-			var choice_tag = document.getElementById(select_tag.value);
-			document.getElementById("Server").style.display = 'none';
-			document.getElementById("Notebook").style.display = 'none';
-			if (choice_tag != undefined) {
-				choice_tag.style.display = 'block';
-			}
-    	}
-	<% end -%>
-	<div style="height:35px;">
-  <div id="Server" class="field" style="display:none;">
-    <%= f.label "Servers" %><br />
-    <%= f.collection_select(:machine_id, @servers, :id, :model) %>
+ 	<%= f.select(:machine_type, @machine_types, {:prompt => 'Select Machine Type', :selected => @entry.machine_type }) %>
   </div>
-  <div id="Notebook" class="field" style="display:none;">
-    <%= f.label "Notebooks" %><br />
-    <%= f.collection_select(:machine_id, @notebooks, :id, :model) %>
+  <div class="field">
+    <%= f.label "Machine" %><br />
+    <%= f.collection_select(:machine_id, @machines, :id, :model, {:prompt => 'Select Machine'}) %>
   </div>
-  </div>
-  </div>
-  <div id="Server" class="field" style="display:none;">
-    <%= f.label "Servers" %><br />
-    <%= f.collection_select(:machine_id, @servers, :id, :model) %>
-  </div>
-  <div class="actions">
+  <div class="action">
     <%= f.submit %>
   </div>
 <% end %>
