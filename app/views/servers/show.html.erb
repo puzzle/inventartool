@@ -1,0 +1,24 @@
+<% @title ||= full_entry_label -%>
+
+<% content_for(:actions, render(:partial => 'actions_show')) %>
+
+<%= clear %>
+<h3>Attributes</h3>
+<%= render :partial => 'attrs' %>
+
+<h3>Rams attached</h3>
+Count: <%= @entry.rams.count %>
+<ul>
+<% @entry.rams.each do |r| %>
+<li><%= link_to "#{r.description} #{r.capacity}MB", ram_path(r.id) %></li>
+<% end %>
+</ul>
+
+<h3>Disks attached</h3>
+Count: <%= @entry.disks.count %>
+<ul>
+<% @entry.disks.each do |d| %>
+<li><%= link_to "#{d.model} #{d.capacity}GB", disk_path(d.id) %></li>
+<% end %>
+</ul>
+ 
