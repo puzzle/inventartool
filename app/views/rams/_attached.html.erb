@@ -1,0 +1,6 @@
+<h3><%=pluralize(@entry.rams.count, "ram")%> attached</h3>
+<ul>
+<% @entry.rams.each do |r| %>
+<li><%= link_to "#{r.description} #{r.capacity}MB", ram_path(r.id) %></li>
+<% end %>
+</ul>
