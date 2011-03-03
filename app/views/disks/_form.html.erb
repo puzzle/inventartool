@@ -49,7 +49,7 @@
   </div>
   <div class="field">
     <%= f.label :machine_type %><br />
- 	<%= select("disk", "machine_type", @machine_types, {:prompt => 'Select Machine Type'}, :onchange => 'refreshMachineChoice(this);') %>
+ 	<%= select("disk", :machine_type, @machine_types, {:prompt => 'Select Machine Type', :selected => @entry.machine_type }, :onchange => 'refreshMachineChoice(this);') %>
     <%= javascript_tag :defer => 'defer' do -%>
     	function refreshMachineChoice(select_tag) {
 			var choice_tag = document.getElementById(select_tag.value);
