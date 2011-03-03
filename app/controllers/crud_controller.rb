@@ -50,6 +50,7 @@ class CrudController < ListController
   #   GET /entries/new
   #   GET /entries/new.xml
   def new
+    @machine_types = ["Notebook", "Server"]
     @servers = Server.all
     @notebooks = Notebook.all
     @owners = Owner.all
@@ -73,6 +74,11 @@ class CrudController < ListController
   # Display a form to edit an exisiting entry of this model.
   #   GET /entries/1/edit
   def edit
+    @machine_types = ["Notebook", "Server"]
+    @servers = Server.all
+    @notebooks = Notebook.all
+    @owners = Owner.all
+    @distributors = Distributor.all
     render_with_callback 'edit'
   end
   
