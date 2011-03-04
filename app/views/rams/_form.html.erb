@@ -34,14 +34,14 @@
 	<% end -%>
   </div>
   <div style="height:35px;">
-  <div id="Server" class="field" style="display:none;">
-    <%= f.label "Servers" %><br />
-    <%= f.collection_select(:machine_id, @servers, :id, :model) %>
-  </div>
-  <div id="Notebook" class="field" style="display:none;">
-    <%= f.label "Notebooks" %><br />
-    <%= f.collection_select(:machine_id, @notebooks, :id, :model) %>
-  </div>
+	  <div id="Server" class="field" style="display:none;">
+	    <%= f.label "Servers" %><br />
+	    <%= f.collection_select(:machine_id, @servers, :id, :model) %>
+	  </div>
+	  <div id="Notebook" class="field" style="display:none;">
+	    <%= f.label "Notebooks" %><br />
+	    <%= f.collection_select(:machine_id, @notebooks, :id, :model) %>
+	  </div>
   </div>
   <div class="actions">
     <%= f.submit %>
