@@ -4,3 +4,4 @@
 <li><%= link_to "#{d.model} #{d.capacity}GB", disk_path(d.id) %> | <%= link_action 'detach', 'delete', url_options = {:controller => 'disks', :id => d.id, :action => 'detach'}, :confirm => "Are you sure?" %></li>
 <% end %>
 </ul>
+<%= link_action 'Add disk', 'add', disks_path %>
