@@ -1,4 +1,6 @@
 class DisksController < CrudController
+	self.search_columns = [:model, :serial_number, :notes, :capacity]
+	
 	def edit
 		@machine_types = ["Notebook", "Server"]
 	    @machines = Server.all + Notebook.all
