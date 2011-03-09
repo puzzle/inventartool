@@ -49,9 +49,26 @@
   </div>
   <div class="field">
     <%= f.label :machine_type %><br />
- 	<%= f.select(:machine_type, @machine_types, {:prompt => 'Select Machine Type', :selected => @entry.machine_type }) %>
+ 	<%= f.select(:machine_type, @machine_types, {:prompt => 'Select Machine Type', :selected => @entry.machine_type }, :onchange => 'refreshMachineChoice(this);') %>
+ 		
+ 	<%= javascript_tag :defer => 'defer' do -%>
+ 			function refreshMachineChoice(select_tag) {
+			var choice_tag = select_tag.value;
+			if (choice_tag == "Server") 
+			{
+				<% @machines = Server.all%>
+			} 
+			else if (choice_tag == "Notebook") 
+			{
+				<% @machines = Notebook.all%>
+			}
+					
+			alert(choice_tag);
+			window.location.reload();
+    } 
+	<% end -%>
   </div>
-  <div class="field">
+  <div id="machine" class="field">
     <%= f.label "Machine" %><br />
     <%= f.collection_select(:machine_id, @machines, :id, :model, {:prompt => 'Select Machine'}) %>
   </div>
