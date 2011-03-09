@@ -10,6 +10,8 @@ gem 'sqlite3'
 group :development do
 	gem 'dry_crud'
 end
+
+gem 'ruby-net-ldap'
 # Use unicorn as the web server
 # gem 'unicorn'
 
