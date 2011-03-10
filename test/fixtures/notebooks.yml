@@ -1,37 +1,37 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  model: MyString
-  processor: MyString
-  serial_number: MyString
-  service_tag: MyString
-  express_service_code: MyString
-  price: 9.99
-  purchase_date: 2011-02-28
-  warranty_till: 2011-02-28
+  model: Dell Precision M6300
+  processor: Intel(R) Core(TM)2 Duo CPU T7300 @ 2.00GHz
+  serial_number: CN129617BG3366
+  service_tag: 8ZHK93J
+  express_service_code: 195-600-732-31
+  price: 2824.50
+  purchase_date: 2010-02-28
+  warranty_till: 2015-02-28
   owner_changed_on: 2011-02-28
-  previous_owner: MyString
-  battery_serial_number: MyString
-  power_supply_serial_number: MyString
-  mac_addr_lan: MyString
-  mac_addr_wlan: MyString
-  notes: MyText
+  previous_owner: 
+  battery_serial_number: JP0C54474201679J0888
+  power_supply_serial_number: CN-0X9366-71615-88C-0CBC
+  mac_addr_lan: 00:1C:23:20:DB:2E
+  mac_addr_wlan: 
+  notes: Testnotebook
   distributor: 
 
 two:
-  model: MyString
-  processor: MyString
-  serial_number: MyString
-  service_tag: MyString
-  express_service_code: MyString
-  price: 9.99
-  purchase_date: 2011-02-28
-  warranty_till: 2011-02-28
-  owner_changed_on: 2011-02-28
-  previous_owner: MyString
-  battery_serial_number: MyString
-  power_supply_serial_number: MyString
-  mac_addr_lan: MyString
-  mac_addr_wlan: MyString
-  notes: MyText
+  model: Dell Inspiron 9300
+  processor: Intel(R) Core(TM) CPU T5600 @ 1.60GHz
+  serial_number: CN239617BG3366
+  service_tag: 9ZLN93J
+  express_service_code: 195-600-732-31
+  price: 2824.50
+  purchase_date: 2008-02-28
+  warranty_till: 2012-02-28
+  owner_changed_on: 2010-03-18
+  previous_owner: 
+  battery_serial_number: HLM054474201679J0888
+  power_supply_serial_number: CN-0C9234-45615-86C-0CBC
+  mac_addr_lan: 00:1C:23:45:CC:7F
+  mac_addr_wlan: 
+  notes: Testnotebook 2
   distributor: 

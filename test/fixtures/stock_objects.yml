@@ -1,9 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
-  count: 1
+  name: Tastatur Cherry Klein
+  count: 2
 
 two:
-  name: MyString
-  count: 1
+  name: Maus Logitec
+  count: 6

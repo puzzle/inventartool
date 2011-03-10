@@ -1,7 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
+  name: Transtec
 
 two:
-  name: MyString
+  name: Digitec
+
+two:
+  name: Dell

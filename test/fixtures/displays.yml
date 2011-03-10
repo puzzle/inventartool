@@ -1,19 +1,19 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  price: 9.99
-  purchase_date: 2011-02-28
-  serial_number: MyString
-  model: MyString
-  notes: MyText
+  price: 324.50
+  purchase_date: 2009-09-29
+  serial_number: CZ0G286H742638B41M5S
+  model: Dell 2408WFP
+  notes: Evaluierung
   distributor: 
   owner: 
 
 two:
-  price: 9.99
-  purchase_date: 2011-02-28
-  serial_number: MyString
-  model: MyString
-  notes: MyText
+  price: 400.50
+  purchase_date: 2009-09-29
+  serial_number: C234286H742638B41M6N
+  model: Dell 2408WCD
+  notes: Evaluierung
   distributor: 
   owner: 

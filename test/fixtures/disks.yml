@@ -1,23 +1,23 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  model: MyString
-  serial_number: MyString
+  model: WD Raptor WD1500ADFD
+  serial_number: WMAP42010873
   purchase_date: 2011-02-28
-  warranty_till: 2011-02-28
-  price: 9.99
-  notes: MyText
-  capacity: 1
-  connector: MyString
+  warranty_till: 2015-02-28
+  price: 98.50
+  notes: Disk gekauft für Testing
+  capacity: 150
+  connector: SATa
   distributor: 
 
 two:
-  model: MyString
-  serial_number: MyString
-  purchase_date: 2011-02-28
-  warranty_till: 2011-02-28
-  price: 9.99
-  notes: MyText
-  capacity: 1
-  connector: MyString
+  model: WD Raptor WD3000ADFD
+  serial_number: WMAP41210873
+  purchase_date: 2011-04-26
+  warranty_till: 2015-06-24
+  price: 198.50
+  notes: Disk gemietet für Testing
+  capacity: 300
+  connector: SATa
   distributor: 

@@ -1,9 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  capacity: 1
-  description: MyString
+  capacity: 1024
+  description: DDR2, 1066MHz
 
 two:
-  capacity: 1
-  description: MyString
+  capacity: 8405
+  description: DDR5, 5066MHz

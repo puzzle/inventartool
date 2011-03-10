@@ -1,23 +1,23 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  model: MyString
-  processor: MyString
+  model: Transtec X1001XAR172A
+  processor: 2x Quad Core Xeon 2.0 Ghz
   purchase_date: 2011-02-24
-  warranty_till: 2011-02-24
+  warranty_till: 2016-02-24
   rack_units: 1
-  serial_number: MyString
-  price: 9.99
-  notes: MyText
+  serial_number: 6G038578TS
+  price: 2999.90
+  notes: Testserver
   distributor: 
 
 two:
-  model: MyString
-  processor: MyString
+  model: Transtec XL801XAR172A
+  processor: 4x Quad Core Leon 8.0 Ghz
   purchase_date: 2011-02-24
-  warranty_till: 2011-02-24
+  warranty_till: 2030-02-24
   rack_units: 1
-  serial_number: MyString
-  price: 9.99
-  notes: MyText
+  serial_number: 7G03857XXL
+  price: 9999.90
+  notes: Testserver Maxi
   distributor: 
