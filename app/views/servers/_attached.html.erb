@@ -1,6 +1,0 @@
-<h3><%=pluralize(@entry.servers.count, "server")%> attached</h3>
-<ul>
-<% @entry.servers.each do |s| %>
-<li><%= link_to "#{s.model} #{s.serial_number}", server_path(s.id) %></li>
-<% end %>
-</ul>
