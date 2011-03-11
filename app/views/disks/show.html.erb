@@ -1,0 +1,19 @@
+<% @title ||= full_entry_label -%>
+
+<% content_for(:actions, render(:partial => 'actions_show')) %>
+
+<%= clear %>
+
+<%= render :partial => 'attrs' %>
+<h2>Changes:</h2>
+
+<ul>
+<% @version_diff.reverse_each do |diff| %>
+<li><%= "#{diff.count} changes:" %></li>
+	<ul>
+	<% diff.each do |c| %>
+		<li><%="#{c[0]}: #{c[1]} > #{c[2]}" %></li>
+	<% end %>
+	</ul>
+<% end %>
+</ul>

@@ -28,6 +28,8 @@ GEM
       activemodel (= 3.0.4)
       activesupport (= 3.0.4)
     activesupport (3.0.4)
+    acts_as_versioned (0.6.0)
+      activerecord (~> 3.0.0.beta4)
     arel (2.0.9)
     builder (2.1.2)
     dry_crud (1.2.7)
@@ -72,6 +74,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_versioned
   dry_crud
   rails (= 3.0.4)
   ruby-net-ldap

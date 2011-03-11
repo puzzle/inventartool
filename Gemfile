@@ -12,6 +12,7 @@ group :development do
 end
 
 gem 'ruby-net-ldap'
+gem 'acts_as_versioned'
 # Use unicorn as the web server
 # gem 'unicorn'
 
