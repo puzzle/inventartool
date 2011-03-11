@@ -1,0 +1,7 @@
+<h3><%=pluralize(@entry.notebooks.count, "notebook")%> used</h3>
+<ul>
+<% @entry.notebooks.each do |n| %>
+<li><%= link_to "#{n.model} #{n.serial_number}", notebooks_path(n.id) %> | <%= link_action 'unuse', 'delete', url_options = {:controller => 'notebooks', :id => n.id, :action => 'unuse'}, :confirm => "Are you sure?" %></li>
+<% end %>
+</ul>
+<%= link_action 'Add notebook', 'add', notebooks_path %>

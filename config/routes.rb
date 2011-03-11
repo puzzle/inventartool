@@ -23,6 +23,12 @@ resources :disks do
   end
 end
 resources :stock_objects
+
+resources :servers, :notebooks do
+	member do
+		get 'unuse'
+	end
+end
 # detach_disk GET    /disks/:id/detach(.:format)       {:controller=>"disks", :action=>"detach"}
 # edit_disk GET    /disks/:id/edit(.:format)         {:controller=>"disks", :action=>"edit"}
 
