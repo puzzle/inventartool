@@ -22,16 +22,6 @@
   <div class="field">
     <%= f.label :machine_type %><br />
     <%= select("ram", "machine_type", @machine_types, {:prompt => 'Select Machine Type'}, :onchange => 'refreshMachineChoice(this);') %>
-    <%= javascript_tag :defer => 'defer' do -%>
-    	function refreshMachineChoice(select_tag) {
-			var choice_tag = document.getElementById(select_tag.value);
-			document.getElementById("Server").style.display = 'none';
-			document.getElementById("Notebook").style.display = 'none';
-			if (choice_tag != undefined) {
-				choice_tag.style.display = 'block';
-			}
-    	}
-	<% end -%>
   </div>
   <div style="height:35px;">
 	  <div id="Server" class="field" style="display:none;">

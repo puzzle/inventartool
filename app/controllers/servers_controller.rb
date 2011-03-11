@@ -1,5 +1,3 @@
 class ServersController < CrudController
-	def show
-		
-	end
+	self.search_columns = [:model, :processor, :serial_number, :notes]
 end
