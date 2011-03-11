@@ -1,0 +1,7 @@
+<h3><%=pluralize(@entry.servers.count, "server")%> attached</h3>
+<ul>
+<% @entry.servers.each do |s| %>
+<li><%= link_to "#{s.model} #{s.serial_number}GB", server_path(s.id) %> | <%= link_action 'detach', 'delete', url_options = {:controller => 'servers', :id => s.id, :action => 'detach'}, :confirm => "Are you sure?" %></li>
+<% end %>
+</ul>
+<%= link_action 'Add server', 'add', servers_path %>

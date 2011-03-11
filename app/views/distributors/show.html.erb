@@ -1,0 +1,8 @@
+<% @title ||= full_entry_label -%>
+
+<% content_for(:actions, render(:partial => 'actions_show')) %>
+
+<%= clear %>
+<%= render :partial => 'attrs' %>
+
+<%= render :partial => 'servers/attached' %>
