@@ -7,13 +7,17 @@
 <%= render :partial => 'attrs' %>
 <h2>Changes:</h2>
 
-<ul>
-<% @version_diff.reverse_each do |diff| %>
-<li><%= "#{diff.count} changes:" %></li>
-	<ul>
-	<% diff.each do |c| %>
-		<li><%="#{c[0]}: #{c[1]} > #{c[2]}" %></li>
+
+<div>
+<% @diffhash.reverse_each do |number, version| %>
+<table style="border: 1px solid black; width: 100%">
+<tr><td style="border: 1px solid black;" colspan="3"><%= "version #{number}: created by #{version.delete(:creator)} on #{version.delete(:created_at)}" %></td></tr>
+	<% version.each do |key, c| %>
+		<tr>
+		<td style="border: 1px solid black;"><%= key %></td><td style="border: 1px solid black;"><%= c[0] %></td style="border: 1px solid black;"><td style="border: 1px solid black;"><%= c[1] %></td>
+		</tr>
 	<% end %>
-	</ul>
+</table>
 <% end %>
-</ul>
+</div>
+
