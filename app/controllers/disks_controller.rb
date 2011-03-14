@@ -55,7 +55,6 @@ class DisksController < CrudController
 			(1..(v1.attributes.count)).each do |a|
 				a1 = v1.attributes.to_a[a]
 				a0 = v0.attributes.to_a[a]
-
 				if a0.to_a[1] != a1.to_a[1] && !(["updated_at", "creator", "version", "id"].include? a0[0] )
 					h_version[a1[0]] = [a0[1], a1[1]] # 
 				end
