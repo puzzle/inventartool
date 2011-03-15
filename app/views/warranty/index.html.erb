@@ -1,0 +1,20 @@
+<%= render :partial => 'search'%>
+
+<%= clear %>
+<table>
+  <tr>
+    <th>Model</th>
+    <th>Serial Number</th>
+    <th>Warranty Till</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @notebooks.each do |notebook| %>
+  <tr>
+    <td><%= notebook.model %></td>
+    <td><%= notebook.serial_number %></td>
+    <td><%= notebook.warranty_till %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,4 @@
+<%= form_tag(nil, {:method => :get, :class => 'search'}) do %>
+  <%= date_select :q, params[:q] %>
+  <%= submit_tag 'Search' %>
+<% end %>
