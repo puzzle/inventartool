@@ -8,8 +8,8 @@ one:
   price: 98.50
   notes: Disk gekauft für Testing
   capacity: 150
-  connector: SATa
-  distributor: 
+  connector: SATA
+  version: 1
 
 two:
   model: WD Raptor WD3000ADFD
@@ -19,5 +19,5 @@ two:
   price: 198.50
   notes: Disk gemietet für Testing
   capacity: 300
-  connector: SATa
-  distributor: 
+  connector: SATA
+  version: 1

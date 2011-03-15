@@ -10,7 +10,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110228110821) do
+ActiveRecord::Schema.define(:version => 20110314110016) do
+
+  create_table "disk_versions", :force => true do |t|
+    t.integer  "disk_id"
+    t.integer  "version"
+    t.string   "model"
+    t.string   "serial_number"
+    t.date     "purchase_date"
+    t.date     "warranty_till"
+    t.decimal  "price",          :precision => 8, :scale => 2
+    t.text     "notes"
+    t.integer  "capacity"
+    t.string   "connector"
+    t.integer  "distributor_id"
+    t.integer  "machine_id"
+    t.string   "machine_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "creator"
+  end
+
+  add_index "disk_versions", ["disk_id"], :name => "index_disk_versions_on_disk_id"
 
   create_table "disks", :force => true do |t|
     t.string   "model"
@@ -26,6 +47,8 @@ ActiveRecord::Schema.define(:version => 20110228110821) do
     t.string   "machine_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "version"
+    t.string   "creator"
   end
 
   create_table "displays", :force => true do |t|

@@ -1,0 +1,23 @@
+<% @title ||= full_entry_label -%>
+
+<% content_for(:actions, render(:partial => 'actions_show')) %>
+
+<%= clear %>
+
+<%= render :partial => 'attrs' %>
+<h2>Changes:</h2>
+
+
+<div>
+<% @diffhash.reverse_each do |number, version| %>
+<table style="border: 1px solid black; width: 100%">
+<tr><td style="border: 1px solid black;" colspan="3"><%= "version #{number}: created by #{version.delete(:creator)} on #{version.delete(:created_at)}" %></td></tr>
+	<% version.each do |key, c| %>
+		<tr>
+		<td style="border: 1px solid black;"><%= key %></td><td style="border: 1px solid black;"><%= c[0] %></td style="border: 1px solid black;"><td style="border: 1px solid black;"><%= c[1] %></td>
+		</tr>
+	<% end %>
+</table>
+<% end %>
+</div>
+
