@@ -3,10 +3,11 @@ table.version {
 	border: 2px solid black;
 	border-collapse: collapse;
 }
-table.version td { border:1px solid #000; vertical-align:top; overflow:hidden; }
-td.key {
-	border:1px solid #000; 
+table.version td { 
+	border:1px solid black; 
 	vertical-align:top; 
 	overflow:hidden; 
+}
+table.version td.key {
 	width:120px
 }
