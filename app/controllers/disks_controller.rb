@@ -1,37 +1,23 @@
 class DisksController < CrudController
 	self.search_columns = [:model, :serial_number, :notes, :capacity]
 	
-	def edit
+	before_render_form :set_values;
+	before_save :set_creator
+	before_render_show :set_diffhash
+	
+	def set_values
 		@machine_types = ["Notebook", "Server"]
 	    @machines = Server.all + Notebook.all
 	    @distributors = Distributor.all
-	    render_with_callback 'edit'
 	end
-	def update
-	    @entry.attributes = params[model_identifier]
-	    @entry.creator = session[:user_ui]
-	    updated = with_callbacks(:update) { save_entry }
-	    respond_processed(updated, 'updated', 'edit')
+	
+	def set_creator
+		@entry.creator = session[:user_ui]
 	end
-	def new
-		@machine_types = ["Notebook", "Server"]
-		@machines = Server.all + Notebook.all
-		@distributors = Distributor.all
-		render_with_callback 'new'
+	
+	def set_diffhash
+		@diffhash = diff_hash
 	end
-	def create
-	    @entry.attributes = params[model_identifier]
-	    @entry.creator = session[:user_ui]
-	    created = with_callbacks(:create) { save_entry } 
-	    
-	    respond_processed(created, 'created', 'new') do |format|
-	      format.xml  { render :xml => @entry, :status => :created, :location => @entry } if created
-	    end
-  	end
-	def show
-    	@diffhash = diff_hash
-    	respond_with @entry
-  	end
 	
 	def detach
 		set_entry
@@ -47,8 +33,8 @@ class DisksController < CrudController
 		# diff_hash["version"]["attribute"] = [ "before", "after" ]
 		diff_hash = Hash.new
 		(1..(@entry.versions.count)).each do |i|
-			v1 = @entry.versions[i - 1] # Aktuelle Version
-			v0 = @entry.versions[i - 2] # Vorherige Version
+			v1 = @entry.versions[i - 1] # get version
+			v0 = @entry.versions[i - 2] # get version before !
 			h_version = diff_hash[v1.version] = Hash.new
 			h_version[:updated_at] = v1.updated_at
 			h_version[:creator] = v1.creator
