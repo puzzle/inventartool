@@ -46,16 +46,17 @@ class DisksController < CrudController
 		# diff_hash["version"][created_at] = 2011-03-14 08:35:14 UTC
 		# diff_hash["version"]["attribute"] = [ "before", "after" ]
 		diff_hash = Hash.new
-		(2..(@entry.versions.count)).each do |i|
+		(1..(@entry.versions.count)).each do |i|
 			v1 = @entry.versions[i - 1] # Aktuelle Version
 			v0 = @entry.versions[i - 2] # Vorherige Version
 			h_version = diff_hash[v1.version] = Hash.new
-			h_version[:created_at] = v1.created_at
+			h_version[:updated_at] = v1.updated_at
 			h_version[:creator] = v1.creator
+			h_version[:change_notice] = v1.change_notice
 			(1..(v1.attributes.count)).each do |a|
 				a1 = v1.attributes.to_a[a]
 				a0 = v0.attributes.to_a[a]
-				if a0.to_a[1] != a1.to_a[1] && !(["updated_at", "creator", "version", "id"].include? a0[0] )
+				if a0.to_a[1] != a1.to_a[1] && !(["updated_at", "creator", "change_notice", "version", "id"].include? a0[0] )
 					h_version[a1[0]] = [a0[1], a1[1]] # 
 				end
 			end

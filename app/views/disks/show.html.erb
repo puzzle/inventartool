@@ -10,14 +10,19 @@
 
 <div>
 <% @diffhash.reverse_each do |number, version| %>
-<table style="border: 1px solid black; width: 100%">
-<tr><td style="border: 1px solid black;" colspan="3"><%= "version #{number}: created by #{version.delete(:creator)} on #{version.delete(:created_at)}" %></td></tr>
+<table class="version" >
+<tr><td colspan="3"><%= "version #{number} by #{version.delete(:creator)} on #{version.delete(:updated_at).strftime("%A, %Y-%m-%d %H:%M")}" %></td></tr>
+<tr><td>Notice: </td><td colspan="2"><%= "#{version.delete(:change_notice)}" %></td></tr>
 	<% version.each do |key, c| %>
 		<tr>
-		<td style="border: 1px solid black;"><%= key %></td><td style="border: 1px solid black;"><%= c[0] %></td style="border: 1px solid black;"><td style="border: 1px solid black;"><%= c[1] %></td>
+			<td class="key"><%= key %></td>
+			<td><%= c[0] %></td>
+			<td><%= c[1] %></td>
 		</tr>
 	<% end %>
 </table>
+<br>
 <% end %>
+<br>
 </div>
 

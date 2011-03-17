@@ -55,6 +55,10 @@
     <%= f.label "Machine" %><br />
     <%= f.collection_select(:machine_id, @machines, :id, :model, {:prompt => 'Select Machine'}) %>
   </div>
+  <div class="field">
+    <%= f.label :change_notice %><br />
+    <%= f.text_field :change_notice %>
+  </div>
   <div class="action">
     <%= f.submit %>
   </div>

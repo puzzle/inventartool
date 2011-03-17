@@ -1,0 +1,12 @@
+table.version { 
+	width:100%;
+	border: 2px solid black;
+	border-collapse: collapse;
+}
+table.version td { border:1px solid #000; vertical-align:top; overflow:hidden; }
+td.key {
+	border:1px solid #000; 
+	vertical-align:top; 
+	overflow:hidden; 
+	width:120px
+}
