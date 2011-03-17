@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110316090508) do
+ActiveRecord::Schema.define(:version => 20110317103559) do
 
   create_table "disk_versions", :force => true do |t|
     t.integer  "disk_id"
@@ -106,6 +106,7 @@ ActiveRecord::Schema.define(:version => 20110316090508) do
     t.string   "machine_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "serial_number"
   end
 
   create_table "servers", :force => true do |t|
