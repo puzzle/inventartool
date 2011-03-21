@@ -9,7 +9,8 @@
 
 
 <div>
-<% @diffhash.reverse_each do |number, version| %>
+<% @diffhash.keys.sort.reverse_each do |number| %>
+<% version = @diffhash[number]%>
 <table class="version" >
 <tr><td colspan="3"><%= "version #{number} by #{version.delete(:creator)} on #{version.delete(:updated_at).strftime("%A, %Y-%m-%d %H:%M")}" %></td></tr>
 <tr><td class="key">Notice: </td><td colspan="2"><%= "#{version.delete(:change_notice)}" %></td></tr>
