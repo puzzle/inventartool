@@ -1,15 +1,9 @@
 <form name="hallo" >
+	<p>Bitte geben Sie das maximale Garantie Ablaufdatum ein:</p>
 	<input type="date" name="warranty_end_date" size="30" maxlength="30" />
-	<input type="submit" name="searchValue" value="Search" id="searchValue" onclick="dateCalc(this.form.searchField.value);"/>
+	<input type="submit" value="Search" onclick="dateCalc(this.form.searchField.value);"/>
 </form>
-<script type="text/javascript">
-function dateCalc(formular) {
-		if (formular <= "2011-03-25") {
-			alert(formular);
-		}
-	}
-</script>
-<h1>Notebooks</h1>
+<h1>Searchlist</h1>
 <%=link_to "Dashboard",  :controller => "dashboard"%>
 <div id="field">
 <table>
