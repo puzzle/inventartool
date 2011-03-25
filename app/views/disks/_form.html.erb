@@ -48,13 +48,10 @@
     <%= f.collection_select(:distributor_id, @distributors, :id, :name) %>
   </div>
   <div class="field">
-    <%= f.label :machine_type %><br />
- 	<%= f.select(:machine_type, @machine_types, {:prompt => 'Select Machine Type', :selected => @entry.machine_type }) %>
+    <%= f.label :machine %><br />
+ 	<%= f.select(:machine, @a_machines, {:prompt => 'Select Machine'}) %>
   </div>
-  <div id="machine" class="field">
-    <%= f.label "Machine" %><br />
-    <%= f.collection_select(:machine_id, @machines, :id, :model, {:prompt => 'Select Machine'}) %>
-  </div>
+
   <div class="field">
     <%= f.label :change_notice %><br />
     <%= f.text_field :change_notice %>

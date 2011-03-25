@@ -1,20 +1,34 @@
 class DisksController < CrudController
 	self.search_columns = [:model, :serial_number, :notes, :capacity]
 	
-	before_render_form :set_values;
+	before_filter :set_machine, :only => [:update, :create]
+	
+	before_render_form :set_values
 	before_save :set_creator
 	before_render_show :set_diffhash
 	
 	def set_values
-		@machine_types = ["Notebook", "Server"]
-	    @machines = Server.all + Notebook.all
-	    @distributors = Distributor.all
+		@distributors = Distributor.all
+	    @a_machines = []
+	    Notebook.all.each do |machine|
+	    	@a_machines << ["Notebook: #{machine.label}", "Notebook_#{machine.id}"]
+	    end
+	    Server.all.each do |machine|
+	    	@a_machines << ["Server: #{machine.label}", "Server_#{machine.id}"]
+	    end
+	    @a_machines << ["(none)", nil ]
 	end
-	
+
+	def set_machine
+		m = params[model_identifier].delete(:machine).split("_")
+		@entry.machine_type = m[0]
+		@entry.machine_id = m[1]
+	end
+
 	def set_creator
 		@entry.creator = session[:user_ui]
 	end
-	
+
 	def set_diffhash
 		@diffhash = diff_hash
 	end
