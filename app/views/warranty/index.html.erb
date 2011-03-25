@@ -1,4 +1,16 @@
+<form name="hallo" >
+	<input type="date" name="warranty_end_date" size="30" maxlength="30" />
+	<input type="submit" name="searchValue" value="Search" id="searchValue" onclick="dateCalc(this.form.searchField.value);"/>
+</form>
+<script type="text/javascript">
+function dateCalc(formular) {
+		if (formular <= "2011-03-25") {
+			alert(formular);
+		}
+	}
+</script>
 <h1>Notebooks</h1>
+<%=link_to "Dashboard",  :controller => "dashboard"%>
 <div id="field">
 <table>
   <tr>
