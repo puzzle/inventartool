@@ -1,29 +1,25 @@
-<form name="hallo" >
-	<p>Bitte geben Sie das maximale Garantie Ablaufdatum ein:</p>
-	<input type="date" name="warranty_end_date" size="30" maxlength="30" />
+<form name="hallo" >	
+	<p>Garantie Ablaufdatum:<input type="date" name="warranty_end_date" size="30" maxlength="30" /></p>
+	<p>Tiefstes Ablaufdatum: <input type="date" name="lowest_warranty_end_date" size="30" maxlength="30" /></p>
 	<input type="submit" value="Search" onclick="dateCalc(this.form.searchField.value);"/>
 </form>
 <h1>Searchlist</h1>
-<%=link_to "Dashboard",  :controller => "dashboard"%>
-<div id="field">
-<table>
-  <tr>
-  	<style type="text/css">
-		#field {margin-left:800px; margin-top:90px;}
-	</style>
-    <th>Model</th>
-    <th>Serial Number</th>
-    <th>Warranty Till</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-<% @notebooks.each do |notebook| %>
-  <tr>
-    <td><%= notebook.model %></td>
-    <td><%= notebook.serial_number %></td>
-    <td><%= notebook.warranty_till %></td>
-  </tr>
-<% end %>
-</table>
+<p>Back to <%=link_to "Dashboard",  :controller => "dashboard"%></p>
+<div class="field">
+<h4>Notebooks</h4>
+<%= table(@notebooks) do |t|
+	t.attrs :model, :serial_number, :warranty_till
+end%>
+<h4>Servers</h4>
+<%= table(@servers) do |t|
+	t.attrs :model, :serial_number, :warranty_till
+end%>
+<h4>Disks</h4>
+<%= table(@servers) do |t|
+	t.attrs :model, :serial_number, :warranty_till
+end%>
+<h4>RAMs</h4>
+<%= table(@servers) do |t|
+	t.attrs :model, :serial_number, :warranty_till
+end%>
 </div>
