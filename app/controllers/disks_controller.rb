@@ -1,7 +1,7 @@
 class DisksController < CrudController
 	self.search_columns = [:model, :serial_number, :notes, :capacity]
 	
-	before_filter :set_machine, :only => [:update, :create]
+	before_filter :set_machine, :set_change_notice, :only => [:update, :create]
 	
 	before_render_form :set_values
 	before_save :set_creator
@@ -23,6 +23,11 @@ class DisksController < CrudController
 		m = params[model_identifier].delete(:machine).split("_")
 		@entry.machine_type = m[0]
 		@entry.machine_id = m[1]
+	end
+	def set_change_notice
+		if (params[model_identifier][:change_notice] == "")
+			params[model_identifier][:change_notice] = @entry.change_notice
+		end
 	end
 
 	def set_creator
