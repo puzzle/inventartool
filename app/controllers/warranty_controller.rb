@@ -14,12 +14,10 @@ class WarrantyController < CrudController
 		@notebooks = Notebook.all
 		@servers = Server.all
 		@disks = Disk.all
-		@rams = Ram.all
 		else
 		@notebooks = Notebook.where("warranty_till <= :end_date AND warranty_till >= :low_date", :end_date => @warranty, :low_date => @low_warranty)
 		@servers = Server.where("warranty_till <= :end_date AND warranty_till >= :low_date", :end_date => @warranty, :low_date => @low_warranty)
 		@disks = Disk.where("warranty_till <= :end_date AND warranty_till >= :low_date", :end_date => @warranty, :low_date => @low_warranty)
-		@rams = Ram.where("warranty_till <= :end_date AND warranty_till >= :low_date", :end_date => @warranty, :low_date => @low_warranty)
 	end
 	end	
 	
