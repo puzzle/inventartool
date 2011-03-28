@@ -1,7 +1,8 @@
 <h1>InventarTool Dashboard</h1>
 <div id="user">Angemeldet als: <%= @user_name + " (" + @user_uid + ")"%></div>
-<%= link_to "Warranty Ends", :controller => "warranty"%>
 <p>Overview</p>
+<h3>Warranty Controller</h3>
+<%= link_to "Warranty Ends", :controller => "warranty"%>
 <h2>Server</h2>
 <p><%= link_to "Manage Servers", servers_path%></p>
 
