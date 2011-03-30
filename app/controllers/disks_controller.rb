@@ -1,7 +1,7 @@
 class DisksController < CrudController
 	self.search_columns = [:model, :serial_number, :notes, :capacity]
 	
-	before_filter :set_machine, :set_change_notice, :only => [:update, :create]
+	before_filter :set_machine, :set_change_notice, :set_warranty, :only => [:update, :create]
 	
 	before_render_form :set_values
 	before_save :set_creator
@@ -36,6 +36,16 @@ class DisksController < CrudController
 
 	def set_diffhash
 		@diffhash = diff_hash
+	end
+	
+	def set_warranty
+		@intI = (params[model_identifier][:warranty_till]).to_i
+		@intY = Date.parse( {"1i"=>params[model_identifier][:"purchase_date(1i)"], "2i"=>params[model_identifier][:"purchase_date(2i)"], "3i"=>params[model_identifier][:"purchase_date(3i)"]}.to_a.sort.collect{|c| c[1]}.join("-"))
+		RAILS_DEFAULT_LOGGER.error("Test Here " + (@intI).to_s)
+		RAILS_DEFAULT_LOGGER.error("Test Here " + (@intY).to_s)
+		puts @intI
+		puts @intY
+		params[model_identifier][:warranty_till] = @intY + @intI.years
 	end
 	
 	def detach
