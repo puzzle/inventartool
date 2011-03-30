@@ -17,6 +17,8 @@ class DisksController < CrudController
 	    	@a_machines << ["Server: #{machine.label}", "Server_#{machine.id}"]
 	    end
 	    @a_machines << ["(none)", nil ]
+	    
+	    @entry.warranty_till = ((@entry.warranty_till - @entry.purchase_date).to_i)/365
 	end
 
 	def set_machine

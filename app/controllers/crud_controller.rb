@@ -74,7 +74,6 @@ class CrudController < ListController
   # Display a form to edit an exisiting entry of this model.
   #   GET /entries/1/edit
   def edit
-    @entry.warranty_till = ((@entry.warranty_till - @entry.purchase_date).to_i)/365
     @machine_types = ["Notebook", "Server"]
     @servers = Server.all
     @notebooks = Notebook.all
