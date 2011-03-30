@@ -7,7 +7,7 @@ class WarrantyController < CrudController
 			if @low_warranty == ""
 			@warranty = nil
 			else
-				@warranty = Date.today
+				@warranty = "9999-99-99"
 			end
 		end
 		if @warranty == nil
