@@ -5,10 +5,13 @@ gem 'rails', '3.0.4'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-
 group :development do
 	gem 'dry_crud'
+	gem 'sqlite3'
+end
+
+group :production do
+        gem 'mysql2'
 end
 
 gem 'ruby-net-ldap'
@@ -20,7 +23,7 @@ gem 'acts_as_versioned'
 # gem 'capistrano'
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
-# gem 'ruby-debug'
+gem 'ruby-debug'
 # gem 'ruby-debug19'
 
 # Bundle the extra gems:
