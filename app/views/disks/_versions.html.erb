@@ -1,0 +1,18 @@
+<h2>Changes:</h2>
+<% @diffhash.keys.sort.reverse_each do |number| %>
+<% version = @diffhash[number]%>
+<table class="version" >
+<tr><td colspan="3"><%= "version #{number} by #{version.delete(:creator)} on #{version.delete(:updated_at).strftime("%A, %Y-%m-%d %H:%M")}" %></td></tr>
+<tr><td class="key">Notice: </td><td colspan="2"><%= "#{version.delete(:change_notice)}" %></td></tr>
+	<% version.each do |key, c| %>
+		<tr>
+			<td class="key"><%= key %></td>
+			<td><%= c[0] %></td>
+			<td><%= c[1]%></td>
+		</tr>
+	<% end %>
+</table>
+<br>
+<% end %>
+<br>
+
