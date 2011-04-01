@@ -1,0 +1,23 @@
+<%= crud_form(@entry) do |f| %>
+  <% if @entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@entry.errors.count, "error") %> prohibited this ram from being saved:</h2>
+
+      <ul>
+      <% @entry.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= f.labeled_input_fields :model, :processor, :purchase_date%>
+  <div class="field">
+    <%= f.label :warranty_duration %>
+    <%= f.text_field :warranty_till %>
+  </div>
+<%= f.labeled_input_fields :rack_units, :serial_number, :price, :notes%>
+  <div class="field">
+    <%= f.label :distributor %><br />
+    <%= f.collection_select(:distributor_id, @distributors, :id, :name) %>
+  </div>
+<%end%>
