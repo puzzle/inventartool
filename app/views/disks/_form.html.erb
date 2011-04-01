@@ -20,5 +20,9 @@
     <%= f.label :distributor %><br />
     <%= f.collection_select(:distributor_id, @distributors, :id, :name) %>
   </div>
-  <%= f.labeled_input_fields :machine, :change_notice%>
+  <div class="field">
+    <%= f.label :machine %><br />
+    <%= f.select(:machine, @a_machines, {:prompt => 'Select Machine'}) %>
+  </div>
+  <%= f.labeled_input_fields :change_notice%>
 <% end %>
