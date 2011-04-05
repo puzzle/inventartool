@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(:version => 20110405120901) do
     t.string   "serial_number"
     t.string   "service_tag"
     t.string   "express_service_code"
-    t.decimal  "price"
+    t.decimal  "price",                      :precision => 8, :scale => 2
     t.date     "purchase_date"
     t.date     "warranty_till"
     t.date     "owner_changed_on"

@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <%= f.labeled_input_fields :capacity, :description, :serial_number%>
+  <%= f.labeled_input_fields :capacity, :description, :serial_number, :in_repair%>
   <div class="labeled">
     <div class="caption"><%= f.label :machine %></div>
     <div class="value"><%= f.select(:machine, @a_machines, {:prompt => 'Select Machine'}) %></div>
