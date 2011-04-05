@@ -11,17 +11,17 @@
     </div>
   <% end %>
 <%= f.labeled_input_fields :model, :processor, :serial_number, :service_tag, :express_service_code, :price, :purchase_date%>
-  <div class="field">
-    <%= f.label :warranty_duration %>
-    <%= f.text_field :warranty_till %>
+  <div class="labeled">
+    <div class="caption"><%= f.label :warranty_duration %></div>
+    <div class="value"><%= f.text_field :warranty_till %></div>
   </div>
 <%= f.labeled_input_fields :owner_changed_on, :previous_owner, :battery_serial_number, :power_supply_serial_number, :mac_addr_lan, :mac_addr_wlan, :notes%>
-  <div class="field">
-    <%= f.label :distributor %><br />
-    <%= f.collection_select(:distributor_id, @distributors, :id, :name) %>
+  <div class="labeled">
+    <div class="caption"><%= f.label :distributor %></div>
+    <div class="value"><%= f.collection_select(:distributor_id, @distributors, :id, :name) %></div>
   </div>
-  <div class="field">
-    <%= f.label :owner %><br />
-    <%= f.collection_select(:owner_id, @owners, :id, :name) %>
+  <div class="labeled">
+    <div class="caption"><%= f.label :owner %></div>
+    <div class="value"><%= f.collection_select(:owner_id, @owners, :id, :name) %></div>
   </div>
 <%end%>

@@ -11,18 +11,18 @@
     </div>
   <% end %>
 <%= f.labeled_input_fields :model, :serial_number, :purchase_date%>
-  <div class="field">
-    <%= f.label :warranty_duration %><br />
-    <%= f.text_field :warranty_till %>
+  <div class="labeled">
+    <div class="caption"><%= f.label :warranty_duration %></div>
+    <div class="value"><%= f.text_field :warranty_till %></div>
   </div>
   <%= f.labeled_input_fields :price, :notes, :capacity, :connector%>
-   <div class="field">
-    <%= f.label :distributor %><br />
-    <%= f.collection_select(:distributor_id, @distributors, :id, :name) %>
+   <div class="labeled">
+    <div class="caption"><%= f.label :distributor %></div>
+    <div class="value"><%= f.collection_select(:distributor_id, @distributors, :id, :name) %></div>
   </div>
-  <div class="field">
-    <%= f.label :machine %><br />
-    <%= f.select(:machine, @a_machines, {:prompt => 'Select Machine'}) %>
+  <div class="labeled">
+    <div class="caption"><%= f.label :machine %></div>
+    <div class="value"><%= f.select(:machine, @a_machines, {:prompt => 'Select Machine'}) %></div>
   </div>
   <%= f.labeled_input_fields :change_notice%>
 <% end %>

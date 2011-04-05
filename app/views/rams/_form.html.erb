@@ -11,8 +11,8 @@
     </div>
   <% end %>
   <%= f.labeled_input_fields :capacity, :description, :serial_number%>
-  <div class="field">
-    <%= f.label :machine %><br />
-    <%= f.select(:machine, @a_machines, {:prompt => 'Select Machine'}) %>
+  <div class="labeled">
+    <div class="caption"><%= f.label :machine %></div>
+    <div class="value"><%= f.select(:machine, @a_machines, {:prompt => 'Select Machine'}) %></div>
   </div>
 <% end %>
