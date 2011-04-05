@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110317103559) do
+ActiveRecord::Schema.define(:version => 20110405120901) do
 
   create_table "disk_versions", :force => true do |t|
     t.integer  "disk_id"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20110317103559) do
     t.integer  "version"
     t.string   "creator"
     t.string   "change_notice"
+    t.boolean  "in_repair"
   end
 
   create_table "displays", :force => true do |t|
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20110317103559) do
     t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "in_repair"
   end
 
   create_table "distributors", :force => true do |t|
@@ -77,7 +79,7 @@ ActiveRecord::Schema.define(:version => 20110317103559) do
     t.string   "serial_number"
     t.string   "service_tag"
     t.string   "express_service_code"
-    t.decimal  "price",                      :precision => 8, :scale => 2
+    t.decimal  "price"
     t.date     "purchase_date"
     t.date     "warranty_till"
     t.date     "owner_changed_on"
@@ -91,6 +93,7 @@ ActiveRecord::Schema.define(:version => 20110317103559) do
     t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "in_repair"
   end
 
   create_table "owners", :force => true do |t|
@@ -107,6 +110,7 @@ ActiveRecord::Schema.define(:version => 20110317103559) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "serial_number"
+    t.boolean  "in_repair"
   end
 
   create_table "servers", :force => true do |t|
@@ -121,6 +125,7 @@ ActiveRecord::Schema.define(:version => 20110317103559) do
     t.integer  "distributor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "in_repair"
   end
 
   create_table "stock_objects", :force => true do |t|

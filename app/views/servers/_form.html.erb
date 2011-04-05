@@ -15,7 +15,7 @@
     <div class="caption"><%= f.label :warranty_duration %></div>
     <div class="value"><%= f.text_field :warranty_till %></div>
   </div>
-<%= f.labeled_input_fields :rack_units, :serial_number, :price, :notes%>
+<%= f.labeled_input_fields :rack_units, :serial_number, :price, :notes, :in_repair %>
   <div class="labeled">
     <div class="caption"><%= f.label :distributor %></div>
     <div class="value"><%= f.collection_select(:distributor_id, @distributors, :id, :name) %></div>
