@@ -31,6 +31,12 @@
 	<div id="content">
 		<%= yield %>
 	</div>
+	<%= clear %>
+	<div id="nav_bottom">
+		<ul>
+		<li><%= link_to "Dashboard", :controller => "dashboard" %></li>
+		</ul>
+	</div>
 </div>
 
 </body>
