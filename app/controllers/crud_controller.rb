@@ -69,8 +69,6 @@ class CrudController < ListController
   # Display a form to edit an exisiting entry of this model.
   #   GET /entries/1/edit
   def edit
-  	@distributors = Distributor.all
-  	@owners = Owner.all
     render_with_callback 'edit'
   end
   

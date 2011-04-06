@@ -13,9 +13,10 @@ class NotebooksController < CrudController
 	end
 	
 	def set_values
-		
+		@distributors = Distributor.all
+		@owners = Owner.all
 		if (@entry.warranty_till != nil)
-	    	@entry.warranty_till = ((@entry.warranty_till - @entry.purchase_date).to_i)/365
-	    end
+			@entry.warranty_till = ((@entry.warranty_till - @entry.purchase_date).to_i)/365
+		end
 	end
 end
