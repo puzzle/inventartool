@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110405120901) do
+ActiveRecord::Schema.define(:version => 20110406082745) do
 
   create_table "disk_versions", :force => true do |t|
     t.integer  "disk_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20110405120901) do
     t.datetime "updated_at"
     t.string   "creator"
     t.string   "change_notice"
+    t.boolean  "in_repair"
   end
 
   add_index "disk_versions", ["disk_id"], :name => "index_disk_versions_on_disk_id"
@@ -79,7 +80,7 @@ ActiveRecord::Schema.define(:version => 20110405120901) do
     t.string   "serial_number"
     t.string   "service_tag"
     t.string   "express_service_code"
-    t.decimal  "price",                      :precision => 8, :scale => 2
+    t.decimal  "price"
     t.date     "purchase_date"
     t.date     "warranty_till"
     t.date     "owner_changed_on"
