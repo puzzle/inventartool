@@ -1,6 +1,7 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
+  name: Vetar
   model: Transtec X1001XAR172A
   processor: 2x Quad Core Xeon 2.0 Ghz
   purchase_date: 2011-02-24
@@ -9,9 +10,11 @@ one:
   serial_number: 6G038578TS
   price: 2999.90
   notes: Testserver
+  in_repair: true
   distributor: 
 
 two:
+  name: Horizon
   model: Transtec XL801XAR172A
   processor: 4x Quad Core Leon 8.0 Ghz
   purchase_date: 2011-02-24
@@ -20,4 +23,5 @@ two:
   serial_number: 7G03857XXL
   price: 9999.90
   notes: Testserver Maxi
+  in_repair: false
   distributor: 

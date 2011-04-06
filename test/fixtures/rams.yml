@@ -3,7 +3,9 @@
 one:
   capacity: 1024
   description: DDR2, 1066MHz
+  in_repair: false
 
 two:
   capacity: 8405
   description: DDR5, 5066MHz
+  in_repair: false

@@ -6,6 +6,7 @@ one:
   serial_number: CZ0G286H742638B41M5S
   model: Dell 2408WFP
   notes: Evaluierung
+  in_repair: false
   distributor: 
   owner: 
 
@@ -15,5 +16,6 @@ two:
   serial_number: C234286H742638B41M6N
   model: Dell 2408WCD
   notes: Evaluierung
+  in_repair: false
   distributor: 
   owner: 

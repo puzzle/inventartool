@@ -16,6 +16,7 @@ one:
   mac_addr_lan: 00:1C:23:20:DB:2E
   mac_addr_wlan: 
   notes: Testnotebook
+  in_repair: false
   distributor: 
 
 two:
@@ -34,4 +35,5 @@ two:
   mac_addr_lan: 00:1C:23:45:CC:7F
   mac_addr_wlan: 
   notes: Testnotebook 2
+  in_repair: false
   distributor: 
