@@ -1,0 +1,6 @@
+<h3><%=pluralize(@entry.displays.count, "display")%> used</h3>
+<ul>
+<% @entry.displays.each do |d| %>
+<li><%= link_to "#{d.model} #{d.serial_number}", display_path(d.id) %></li>
+<% end %>
+</ul>

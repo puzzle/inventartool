@@ -1,0 +1,7 @@
+<h3><%=pluralize(@entry.displays.count, "display")%> used</h3>
+<ul>
+<% @entry.displays.each do |d| %>
+<li><%= link_to "#{d.model} #{d.serial_number}", displays_path(d.id) %> | <%= link_action 'unuse', 'delete', url_options = {:controller => 'displays', :id => d.id, :action => 'unuse'}, :confirm => "Are you sure?" %></li>
+<% end %>
+</ul>
+<%= link_action 'Add display', 'add', displays_path %>
