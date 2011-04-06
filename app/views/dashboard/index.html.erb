@@ -3,14 +3,13 @@
 <div id="dashboard">
 	<div id="dashboard_1" class="division" >
 		<div>
-			<h2>Server</h2>
+			<h2>Servers</h2>
 			<ul>
 				<li><%= link_to "List Servers", servers_path%></li>
 				<li><%= link_action('New Server', 'add', 'servers/new', {}) %></li>
 			</ul>
 			
 		</div>
-
 		<div>
 			<h2>Notebooks</h2>
 			<ul>
@@ -18,9 +17,6 @@
 				<li><%= link_action('New Notebook', 'add', 'notebooks/new', {}) %></li>
 			</ul>
 		</div>
-	</div>
-	
-	<div id="dashboard_2" class="division" >
 		<div>
 			<h2>Displays</h2>
 			<ul>
@@ -28,7 +24,9 @@
 				<li><%= link_action('New Display', 'add', 'displays/new', {}) %></li>
 			</ul>
 		</div>
-		
+	</div>
+	
+	<div id="dashboard_2" class="division" >
 		<div>
 			<h2>Disks</h2>
 			<ul>
@@ -44,9 +42,7 @@
 				<li><%= link_action('New Ram', 'add', 'rams/new', {}) %></li>
 			</ul>
 		</div>
-	</div>
-	
-	<div id="dashboard_3" class="division" >
+
 		<div>
 			<h2>Owners</h2>
 			<ul>
@@ -64,7 +60,7 @@
 		</div>
 	</div>
 	
-	<div id="dashboard_4" class="division" >
+	<div id="dashboard_3" class="division" >
 		<div>
 			<h2>Stock</h2>
 			<ul>
