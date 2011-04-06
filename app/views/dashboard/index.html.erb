@@ -1,28 +1,82 @@
 <h1>InventarTool Dashboard</h1>
 <div id="user">Angemeldet als: <%= @user_name + " (" + @user_uid + ")"%></div>
-<p>Overview</p>
-<h3>Warranty Controller</h3>
-<%= link_to "Warranty Ends", :controller => "warranty"%>
-<h2>Server</h2>
-<p><%= link_to "Manage Servers", servers_path%></p>
+<div id="dashboard">
+	<div id="dashboard_1" class="division" >
+		<div>
+			<h2>Server</h2>
+			<ul>
+				<li><%= link_to "List Servers", servers_path%></li>
+				<li><%= link_action('New Server', 'add', 'servers/new', {}) %></li>
+			</ul>
+			
+		</div>
 
-<h2>Notebooks</h2>
-<p><%= link_to "Manage Notebooks", notebooks_path%></p>
-
-<h2>Displays</h2>
-<p><%= link_to "Manage Displays", displays_path%></p>
-
-<h2>Disks</h2>
-<p><%= link_to "Manage Disks", disks_path%></p>
-
-<h2>Rams</h2>
-<p><%= link_to "Manage Rams", rams_path%></p>
-
-<h2>Owners</h2>
-<p><%= link_to "Manage Owners", owners_path%></p>
-
-<h2>Distributors</h2>
-<p><%= link_to "Manage Distributors", distributors_path%></p>
-
-<h2>Stock</h2>
-<p><%= link_to "Manage Stock", stock_objects_path%></p>
+		<div>
+			<h2>Notebooks</h2>
+			<ul>
+				<li><%= link_to "List Notebooks", notebooks_path%></li>
+				<li><%= link_action('New Notebook', 'add', 'notebooks/new', {}) %></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="dashboard_2" class="division" >
+		<div>
+			<h2>Displays</h2>
+			<ul>
+				<li><%= link_to "List Displays", displays_path%></li>
+				<li><%= link_action('New Display', 'add', 'displays/new', {}) %></li>
+			</ul>
+		</div>
+		
+		<div>
+			<h2>Disks</h2>
+			<ul>
+				<li><%= link_to "List Disks", disks_path%></li>
+				<li><%= link_action('New Disk', 'add', 'disks/new', {}) %></li>
+			</ul>
+		</div>
+		
+		<div>
+			<h2>Rams</h2>
+			<ul>
+				<li><%= link_to "List Rams", rams_path%></li>
+				<li><%= link_action('New Ram', 'add', 'rams/new', {}) %></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="dashboard_3" class="division" >
+		<div>
+			<h2>Owners</h2>
+			<ul>
+				<li><%= link_to "List Owners", owners_path%></li>
+				<li><%= link_action('New Owner', 'add', 'owners/new', {}) %></li>
+			</ul>
+		</div>
+		
+		<div>
+			<h2>Distributors</h2>
+			<ul>
+				<li><%= link_to "List Distributors", distributors_path%></li>
+				<li><%= link_action('New Distributor', 'add', 'distributors/new', {}) %></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="dashboard_4" class="division" >
+		<div>
+			<h2>Stock</h2>
+			<ul>
+				<li><%= link_to "Manage Stock", stock_objects_path%></li>
+			</ul>
+		</div>
+			
+		<div>
+			<h2>Warranty</h2>
+			<ul>
+				<li><%= link_to "Warranty Ends", :warranty %></li>
+			</ul>
+		</div>
+	</div>
+</div>
