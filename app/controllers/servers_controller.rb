@@ -1,5 +1,5 @@
 class ServersController < CrudController
-	self.search_columns = [:model, :processor, :serial_number, :notes]
+	self.search_columns = [:name, :model, :processor, :serial_number, :notes]
 	before_filter :set_warranty, :only => [:update, :create]
 	before_render_form :set_values
 	
