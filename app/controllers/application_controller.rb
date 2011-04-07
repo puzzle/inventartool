@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate
-    authenticate_or_request_with_http_basic @application_settings['general']['title'] do |username, password|
+    authenticate_or_request_with_http_basic @application_settings['general']['authname'] do |username, password|
       ldap = Net::LDAP.new :host => @application_settings['ldap']['host'],
                            :port => @application_settings['ldap']['port'],
                            :base => @application_settings['ldap']['base']
