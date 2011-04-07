@@ -8,8 +8,7 @@ class DisksController < CrudController
 	before_render_show :set_diffhash
 	
 	def set_values
-		@distributors = Distributor.all
-	    @a_machines = []
+		@a_machines = []
 	    Notebook.all.each do |machine|
 	    	@a_machines << ["Notebook: #{machine.label}", "Notebook_#{machine.id}"]
 	    end

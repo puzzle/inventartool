@@ -5,7 +5,6 @@ class RamsController < CrudController
 	before_render_form :set_values
 	
 	def set_values
-		@distributors = Distributor.all
 	    @a_machines = []
 	    Notebook.all.each do |machine|
 	    	@a_machines << ["Notebook: #{machine.label}", "Notebook_#{machine.id}"]

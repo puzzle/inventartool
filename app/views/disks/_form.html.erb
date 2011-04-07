@@ -10,16 +10,12 @@
       </ul>
     </div>
   <% end %>
-<%= f.labeled_input_fields :model, :serial_number, :purchase_date%>
+<%= f.labeled_input_fields :model, :serial_number, :purchase_date %>
   <div class="labeled">
     <div class="caption"><%= f.label :warranty_duration %></div>
     <div class="value"><%= f.text_field :warranty_till %></div>
   </div>
-  <%= f.labeled_input_fields :price, :notes, :capacity, :connector, :in_repair %>
-   <div class="labeled">
-    <div class="caption"><%= f.label :distributor %></div>
-    <div class="value"><%= f.collection_select(:distributor_id, @distributors, :id, :name) %></div>
-  </div>
+  <%= f.labeled_input_fields :price, :notes, :capacity, :connector, :distributor, :in_repair %>
   <div class="labeled">
     <div class="caption"><%= f.label :machine %></div>
     <div class="value"><%= f.select(:machine, @a_machines, {:prompt => 'Select Machine'}) %></div>
