@@ -5,8 +5,8 @@ body, div, p, td, th {
 
 body {
 	text-align: center;
-    margin: 0pt;
-    background-color: #ddf;
+    margin: 50pt 5pt ;
+    background-color: #D0CEAE;
 }
 
 #container {
@@ -15,7 +15,7 @@ body {
 	text-align: left;
 	width: 700pt;
 	height: 100%;
-    background-color: #f6f6ff;
+    background-color: #FFFDE5;
 	-moz-box-shadow: 0px 0px 10px #a8490b;
     -webkit-box-shadow: 0px 0px 10px #a8490b;
     box-shadow: 0px 0px 10px #a8490b;
@@ -27,7 +27,7 @@ h1 {
 }
 
 tr.even {
-	background-color: #F0F0F0;
+	background-color: #EBE4E0;
 }
 
 tr.odd { 
