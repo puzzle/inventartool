@@ -1,5 +1,5 @@
 module RamsHelper
-	def format_capacity(disk)
-		"#{disk.capacity} MB"
+	def format_capacity(ram)
+		"#{ram.capacity} MB"
 	end
 end
