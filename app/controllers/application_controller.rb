@@ -3,7 +3,7 @@ require 'net/ldap'
 class ApplicationController < ActionController::Base
   before_filter :load_settings, :authenticate
 
-  helper :all # include all helpers, all the time
+  clear_helpers # Disable loading of all helpers, so that specific disks_helper is used by Disk, and rams_helper by Ram ...
 
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
