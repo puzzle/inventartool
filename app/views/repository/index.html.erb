@@ -1,0 +1,29 @@
+<div class="field">
+	<h2>Repository</h2>
+	<h4>Rams</h4>
+	<%= form_tag( { :action => "attach", }, { :method => :post }) %>
+	<table>
+  <tr>
+    <th>Description</th>
+    <th>Capacity</th>
+    <th>Serial Number</th>
+    <th>Attache?</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rams.each do |obj| %>
+  <tr>
+    <td><%= obj.description %></td>
+    <td><%= obj.capacity %></td>
+    <td><%= obj.serial_number %></td>
+    <td><%= check_box("#{obj.id}", "attach",{}) %></td>
+  </tr>
+<% end %>
+</table>
+<input type="hidden" name="id" value="<%= @machine_id%>">
+<input type="hidden" name="machine_type" value="<%= @machine_type%>">
+<%= submit_tag "Save"%>
+</form>
+</div>
