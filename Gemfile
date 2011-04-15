@@ -16,6 +16,7 @@ end
 
 gem 'ruby-net-ldap'
 gem 'acts_as_versioned'
+gem 'will_paginate'
 # Use unicorn as the web server
 # gem 'unicorn'
 
