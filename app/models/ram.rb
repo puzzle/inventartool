@@ -4,4 +4,8 @@ class Ram < ActiveRecord::Base
 	def label
 		"#{capacity} MB, #{description}"
 	end
+	
+	def attrs_list
+		[:description, :capacity, :serial_number]
+	end
 end

@@ -4,26 +4,27 @@
 	<%= form_tag( { :action => "attach", }, { :method => :post }) %>
 	<table>
   <tr>
-    <th>Description</th>
-    <th>Capacity</th>
-    <th>Serial Number</th>
-    <th>Attache?</th>
+  	<%@table_headers.each do |a|%>
+    <th><%="#{a}"%></th>
+    <%end%>
+    <th>Attach?</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @rams.each do |obj| %>
+<% @list.each do |element| %>
   <tr>
-    <td><%= obj.description %></td>
-    <td><%= obj.capacity %></td>
-    <td><%= obj.serial_number %></td>
-    <td><%= check_box("#{obj.id}", "attach",{}) %></td>
+  	<% element[:attrs].each do |attr| %>
+    	<td><%= attr %></td>
+    <%end%>
+    <td><%= check_box("#{element[:id]}", "attach",{}) %></td>
   </tr>
 <% end %>
 </table>
 <input type="hidden" name="id" value="<%= @machine_id%>">
 <input type="hidden" name="machine_type" value="<%= @machine_type%>">
+<input type="hidden" name="components" value="<%= @components%>">
 <%= submit_tag "Save"%>
 </form>
 </div>
