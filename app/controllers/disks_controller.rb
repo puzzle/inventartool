@@ -37,7 +37,8 @@ class DisksController < CrudController
 	end
 
 	def set_diffhash
-		@diffhash = diff_hash
+		@diffary = diff_ary.reverse.paginate(:page => params[:page], :per_page => 5)
+		p @diffary
 	end
 	
 	def set_warranty
@@ -55,14 +56,14 @@ class DisksController < CrudController
 	end
 	
 	protected
-	def diff_hash
+	def diff_ary
 		# diff_hash["version"][created_at] = 2011-03-14 08:35:14 UTC
 		# diff_hash["version"]["attribute"] = [ "before", "after" ]
-		diff_hash = Hash.new
+		diff_ary = []
 		(1..(@entry.versions.count)).each do |i|
 			v1 = @entry.versions[i - 1] # get version
 			v0 = @entry.versions[i - 2] # get version before !
-			h_version = diff_hash[v1.version] = Hash.new
+			h_version = {}
 			h_version[:updated_at] = v1.updated_at
 			h_version[:creator] = v1.creator
 			h_version[:change_notice] = v1.change_notice
@@ -73,7 +74,8 @@ class DisksController < CrudController
 					h_version[a1[0]] = [a0[1], a1[1]] # h_version[:key] = ["before", "after"]
 				end
 			end
+			diff_ary << {:version => v1.version, :diff =>  h_version, }
 		end
-		diff_hash
+		diff_ary
 	end
 end
