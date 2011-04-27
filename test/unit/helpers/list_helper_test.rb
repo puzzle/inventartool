@@ -42,7 +42,7 @@ class ListHelperTest < ActionView::TestCase
     end
     
     assert_count 7, REGEXP_ROWS, t
-    assert_count 11, REGEXP_SORT_HEADERS, t
+    assert_count 9, REGEXP_SORT_HEADERS, t
   end
   
   test "custom list table with attributes" do
@@ -99,7 +99,7 @@ class ListHelperTest < ActionView::TestCase
     end
     
     assert_count 7, REGEXP_ROWS, t
-    assert_count 10, REGEXP_SORT_HEADERS, t
+    assert_count 8, REGEXP_SORT_HEADERS, t
     assert_count 1, /<th><a .*?sort_dir=desc.*?>Children<\/a> &darr;<\/th>/, t
   end
   
@@ -115,7 +115,7 @@ class ListHelperTest < ActionView::TestCase
     end
     
     assert_count 7, REGEXP_ROWS, t
-    assert_count 10, REGEXP_SORT_HEADERS, t
+    assert_count 8, REGEXP_SORT_HEADERS, t
     assert_count 1, /<th><a .*?sort_dir=asc.*?>Children<\/a> &uarr;<\/th>/, t
   end
     
@@ -137,7 +137,7 @@ class ListHelperTest < ActionView::TestCase
   
   test "default attributes do not include id" do 
     assert_equal [:name, :whatever, :children, :companion_id, :rating, :income, 
-                  :birthdate, :human, :remarks, :created_at, :updated_at], default_attrs
+                  :birthdate, :human, :remarks], default_attrs
   end
   
   # Controller helper methods for the tests
