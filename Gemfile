@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.4'
+gem 'rails', '3.0.7'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -8,6 +8,7 @@ gem 'rails', '3.0.4'
 group :development do
 	gem 'dry_crud'
 	gem 'sqlite3'
+	gem 'ruby-debug-ide'
 end
 
 group :production do
