@@ -21,7 +21,27 @@ require 'test_helper'
 
 class DiskTest < ActiveSupport::TestCase
   # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  test "label" do
+    disk = disks(:one)
+    assert_equal disk.model, disk.label
+  end
+  test "age in days" do
+    disk = disks(:one)
+    disk.purchase_date = Date.today - 1.week
+    assert_equal(7, disk.age_in_days)
+  end
+  test "versioned" do
+    disk = Disk.new
+    disk.save
+    assert_equal(1, disk.version, "version 1")
+    disk.notes = "Check"
+    assert disk.save
+    assert_equal(2, disk.version, "version 2")
+    puts disk.versions.count
+  end
+  test "warranty till days" do
+    disk = disks(:one)
+    disk.warranty_till = Date.today + 1.week
+    assert_equal(7, disk.warranty_end_in_days)
   end
 end

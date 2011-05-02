@@ -22,18 +22,18 @@ class Disk < ActiveRecord::Base
   	belongs_to :machine, :polymorphic => true
   	acts_as_versioned :table_name => :disk_versions
  
-    def label
+  def label
   	"#{model}"
   end
   
   def age_in_days
-  	(Date.today - purchase_date).to_s
+  	(Date.today - purchase_date)
   end
   
   def warranty_end_in_days
-  	(warranty_till - Date.today).to_s
+  	(warranty_till - Date.today)
   end
-  
+
   def attrs_list
   	[:model, :capacity, :serial_number]
   end
