@@ -40,23 +40,25 @@ InventarTool::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-resources :servers, :notebooks, :rams, :displays, :distributors, :owners, :repository
+resources :servers, :notebooks, :disks, :rams, :displays, :distributors, :owners, :stock_objects do
+  collection do
+    get 'removed'
+  end
+end
 
 resources :disks, :rams do
   member do
     get 'detach'
   end
 end
-resources :stock_objects
 
 resources :servers, :notebooks do
-	member do
-		get 'unuse'
-	end
+  member do
+    get 'unuse'
+  end
 end
 
-# detach_disk GET    /disks/:id/detach(.:format)       {:controller=>"disks", :action=>"detach"}
-# edit_disk GET    /disks/:id/edit(.:format)         {:controller=>"disks", :action=>"edit"}
+resource :repository
 
   # Sample resource route with options:
   #   resources :products do

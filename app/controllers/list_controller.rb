@@ -41,7 +41,7 @@ class ListController < ApplicationController
   extend ActiveModel::Callbacks  
   
   # Defines before callbacks for the render actions.
-  define_model_callbacks :render_index, 
+  define_model_callbacks :render_index, :render_removed,
                          :only => :before,
                          :terminator => "result == false || performed?"
                          
@@ -52,10 +52,17 @@ class ListController < ApplicationController
   #   GET /entries
   #   GET /entries.xml
   def index
-    @entries = list_entries.paginate(:page => params[:page])
+    @entries = list_entries.not_removed.paginate(:page => params[:page])
     respond_with @entries
   end
   
+  # List all deleted entries of this model.
+  #   GET /entries/deleted
+  #   GET /entries/deleted.xml
+  def removed
+    @entries = list_entries.removed.paginate(:page => params[:page])
+    respond_with @entries, :index
+  end
   
   protected
   
@@ -65,9 +72,9 @@ class ListController < ApplicationController
   end     
        
   # Convenience method to respond to various formats with the given object.
-  def respond_with(object)
+  def respond_with(object, action = action_name)
     respond_to do |format|
-      format.html { render_with_callback action_name }
+      format.html { render_with_callback action }
       format.xml  { render :xml => object }
     end
   end

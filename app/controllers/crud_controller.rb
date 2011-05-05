@@ -105,11 +105,19 @@ class CrudController < ListController
   #   DELETE /entries/1
   #   DELETE /entries/1.xml
   def destroy
-    destroyed = with_callbacks(:destroy) { @entry.destroy }
+    # destroy only when object is already removed
+    if (@entry.removed != true)
+       @entry.removed = true
+       success = save_entry
+       message = "removed"
+    else
+      success = with_callbacks(:destroy) { @entry.destroy }
+      message = "destroyed"
+    end
 
-    respond_processed(destroyed, 'destroyed') do |format|
+    respond_processed(success, message ) do |format|
       format.html do 
-        if destroyed
+        if success
           redirect_to_index
         else
           flash.alert = @entry.errors.full_messages.join('<br/>').html_safe
