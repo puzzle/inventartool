@@ -13,6 +13,7 @@ end
 
 group :production do
         gem 'mysql2'
+        gem 'activerecord-mysql2-adapter'
 end
 
 gem 'ruby-net-ldap'
