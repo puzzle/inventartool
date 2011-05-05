@@ -18,6 +18,10 @@
  
 
 class DisksController < CrudController
+  require 'modules/remove_module.rb'
+  include Remove
+  define_model_callbacks :render_removed
+
 	self.search_columns = [:model, :serial_number, :notes, :capacity]
 	
 	before_filter :set_machine, :set_change_notice, :set_warranty, :only => [:update, :create]

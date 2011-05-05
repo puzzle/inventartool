@@ -18,6 +18,10 @@
  
 
 class RamsController < CrudController
+  require 'modules/remove_module.rb'
+  include Remove
+  define_model_callbacks :render_removed
+  
 	self.search_columns = [:capacity, :description, :serial_number]
 	before_filter :set_machine, :only => [:update, :create]
 	

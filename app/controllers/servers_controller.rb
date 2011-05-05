@@ -18,6 +18,10 @@
  
 
 class ServersController < CrudController
+  require 'modules/remove_module.rb'
+  include Remove
+  define_model_callbacks :render_removed
+  
 	self.search_columns = [:name, :model, :processor, :serial_number, :notes]
 	before_filter :set_warranty, :only => [:update, :create]
 	before_render_form :set_values

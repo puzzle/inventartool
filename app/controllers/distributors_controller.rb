@@ -18,5 +18,9 @@
  
 
 class DistributorsController < CrudController
+  require 'modules/remove_module.rb'
+  include Remove
+  define_model_callbacks :render_removed
+  
 	self.search_columns = [:name]
 end
