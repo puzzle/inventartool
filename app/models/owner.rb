@@ -18,10 +18,13 @@
  
 
 class Owner < ActiveRecord::Base
-	has_many :displays
-	has_many :notebooks
-	
-	def label
-		"#{name}"
-	end
+  has_many :displays
+  has_many :notebooks
+  
+  scope :removed, where(:removed => true)
+  scope :not_removed, where(:removed => (nil or false))
+  
+  def label
+    "#{name}"
+  end
 end

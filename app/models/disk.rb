@@ -18,23 +18,28 @@
  
 
 class Disk < ActiveRecord::Base
-  	belongs_to :distributor
-  	belongs_to :machine, :polymorphic => true
-  	acts_as_versioned :table_name => :disk_versions
- 
+  belongs_to :distributor
+  belongs_to :machine, :polymorphic => true
+  
+  acts_as_versioned :table_name => :disk_versions
+  
+  scope :removed, where(:removed => true)
+  scope :not_removed, where(:removed => (nil or false))
+  
   def label
-  	"#{model}"
+    "#{model}"
   end
   
   def age_in_days
-  	(Date.today - purchase_date)
+    (Date.today - purchase_date)
   end
   
   def warranty_end_in_days
-  	(warranty_till - Date.today)
+    (warranty_till - Date.today)
   end
 
   def attrs_list
-  	[:model, :capacity, :serial_number]
+    [:model, :capacity, :serial_number]
   end
+  
 end

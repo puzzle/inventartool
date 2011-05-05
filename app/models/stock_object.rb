@@ -18,8 +18,11 @@
  
 
 class StockObject < ActiveRecord::Base
-	
-	def label
-		"#{name}"
-	end
+  
+  scope :removed, where(:removed => true)
+  scope :not_removed, where(:removed => (nil or false))
+  
+  def label
+    "#{name}"
+  end
 end

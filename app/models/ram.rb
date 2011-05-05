@@ -18,13 +18,16 @@
  
 
 class Ram < ActiveRecord::Base
-	belongs_to :machine, :polymorphic => true
-	
-	def label
-		"#{capacity} MB, #{description}"
-	end
-	
-	def attrs_list
-		[:description, :capacity, :serial_number]
-	end
+  belongs_to :machine, :polymorphic => true
+  
+  scope :removed, where(:removed => true)
+  scope :not_removed, where(:removed => (nil or false))
+  
+  def label
+    "#{capacity} MB, #{description}"
+  end
+  
+  def attrs_list
+    [:description, :capacity, :serial_number]
+  end
 end

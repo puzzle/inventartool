@@ -22,15 +22,18 @@ class Server < ActiveRecord::Base
   has_many :rams, :as => :machine
   has_many :disks, :as => :machine
   
+  scope :removed, where(:removed => true)
+  scope :not_removed, where(:removed => (nil or false))
+  
   def label
-  	"#{model} #{serial_number}"
+    "#{model} #{serial_number}"
   end
   
   def age_in_days
-  	(Date.today - purchase_date).to_s
+    (Date.today - purchase_date).to_s
   end
   
   def warranty_end_in_days
-  	(warranty_till - Date.today).to_s
+    (warranty_till - Date.today).to_s
   end
 end
