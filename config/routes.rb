@@ -19,6 +19,7 @@
 
 InventarTool::Application.routes.draw do
   root :to => "dashboard#index"
+  match 'search', :to => 'search#index'
   match 'warranty', :to => 'warranty#index'
   match 'dashboard', :to => 'dashboard#index'
   match 'repository', :to => 'repository#index'
@@ -27,6 +28,7 @@ InventarTool::Application.routes.draw do
   get "warranty/index"
   get "repository/index"
   post "repository/attach"
+  post "search/search"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -40,6 +42,7 @@ InventarTool::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+
 resources :servers, :notebooks, :disks, :rams, :displays, :distributors, :owners, :stock_objects do
   collection do
     get 'removed'
@@ -58,7 +61,7 @@ resources :servers, :notebooks do
   end
 end
 
-resource :repository
+resource :repository, :search
 
   # Sample resource route with options:
   #   resources :products do

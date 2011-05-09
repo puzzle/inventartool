@@ -38,4 +38,8 @@ class Notebook < ActiveRecord::Base
   def warranty_end_in_days
     (warranty_till - Date.today).to_s
   end
+  
+  def attrs_list
+    [:model, :processor, :serial_number]
+  end
 end

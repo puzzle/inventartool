@@ -24,23 +24,24 @@ class RepositoryController < CrudController
 		@components = params[:entry]
 		@machine_id = params[:id]
 		@machine_type = params[:machine_type]
-		puts @components
 		if (@components == "ram")
 			entries = Ram.where("machine_id IS Null")
 		else
 			entries = Disk.where("machine_id IS Null")
 		end
-		entries.each do |r|
-			element = {}
-			@table_headers = []
-			attrs = []
-			r.attrs_list.each do |attr|
-				attrs << r.send(attr)
-				@table_headers << attr
-			end
-			element[:attrs] = attrs
-			element[:id] = r.id
-			@list << element
+		if (entries != nil)
+  		entries.each do |r|
+  			element = {}
+  			@table_headers = []
+  			attrs = []
+  			r.attrs_list.each do |attr|
+  				attrs << r.send(attr)
+  				@table_headers << attr
+  			end
+  			element[:attrs] = attrs
+  			element[:id] = r.id
+  			@list << element
+  		end
 		end
 	end
 	

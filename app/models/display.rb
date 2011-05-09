@@ -27,4 +27,8 @@ class Display < ActiveRecord::Base
   def label
     "#{model}"
   end
+  
+  def attrs_list
+    [:model, :serial_number]
+  end
 end
