@@ -20,6 +20,7 @@
 class RepositoryController < CrudController
 	
 	def index
+	  @title = "Repository"
 		@list = []
 		@components = params[:entry]
 		@machine_id = params[:id]

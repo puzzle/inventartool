@@ -18,8 +18,10 @@
  
 
 class WarrantyController < CrudController
+
 	#@warranty_end muss vom User definiert werden können durch Date-Formular.
 	def index
+	  @title = "Warranty"
 		@low_warranty = params[:lowest_warranty_end_date]
 		@max_warranty = params[:warranty_end_date]
 		if @max_warranty == ""
