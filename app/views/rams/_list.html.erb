@@ -17,4 +17,4 @@
 # | # COPYRIGHT HEADER END # 
  %> 
 
-<%= crud_table :description, :capacity, :serial_number, :machine %>
+<%= crud_table *@entries.first.list_columns %>

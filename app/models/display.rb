@@ -31,4 +31,7 @@ class Display < ActiveRecord::Base
   def attrs_list
     [:model, :serial_number]
   end
+  def list_columns
+    [:model, :serial_number, :owner, :distributor]
+  end
 end

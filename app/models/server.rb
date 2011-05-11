@@ -38,6 +38,9 @@ class Server < ActiveRecord::Base
   end
   
   def attrs_list
-    [:model, :processor, :serial_number]
+    [:name, :model, :processor, :serial_number]
+  end
+  def list_columns
+    [:name, :model, :processor, :serial_number, :distributor]
   end
 end

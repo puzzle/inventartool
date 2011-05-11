@@ -41,5 +41,8 @@ class Disk < ActiveRecord::Base
   def attrs_list
     [:model, :capacity, :serial_number]
   end
+  def list_columns
+    [:model, :capacity, :serial_number, :machine, :distributor]
+  end
   
 end

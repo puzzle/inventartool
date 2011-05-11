@@ -17,4 +17,4 @@
 # | # COPYRIGHT HEADER END # 
  %> 
 
-<%= crud_table :model, :owner, :service_tag %>
+<%= crud_table *@entries.first.list_columns %>
