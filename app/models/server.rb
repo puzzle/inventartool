@@ -42,7 +42,7 @@ class Server < ActiveRecord::Base
   def attrs_list
     [:name, :model, :processor, :serial_number]
   end
-  def list_columns
+  def self.list_columns
     [:name, :model, :processor, :serial_number, :distributor]
   end
 end

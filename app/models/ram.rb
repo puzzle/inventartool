@@ -32,7 +32,7 @@ class Ram < ActiveRecord::Base
   def attrs_list
     [:description, :capacity, :serial_number]
   end
-  def list_columns
+  def self.list_columns
     [:description, :capacity, :serial_number, :machine]
   end
 end

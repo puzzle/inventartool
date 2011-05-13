@@ -44,7 +44,7 @@ class Notebook < ActiveRecord::Base
   def attrs_list
     [:model, :processor, :serial_number]
   end
-  def list_columns
+  def self.list_columns
     [:model, :owner, :service_tag]
   end
 end
