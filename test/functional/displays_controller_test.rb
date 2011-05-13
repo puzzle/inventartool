@@ -17,11 +17,24 @@
 # | # COPYRIGHT HEADER END # 
  
 
-require 'test_helper'
+#require 'test_helper'
+
+require File.join("functional", 'crud_controller_test_helper')
 
 class DisplaysControllerTest < ActionController::TestCase
+  include CrudControllerTestHelper
   # Replace this with your real tests.
   test "the truth" do
     assert true
+  end
+  
+  protected
+
+  def test_entry
+    displays(:one)
+  end
+
+  def test_entry_attrs
+    {:model => 'Hans', }
   end
 end
