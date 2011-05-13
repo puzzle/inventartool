@@ -19,6 +19,8 @@
 
 class StockObject < ActiveRecord::Base
   
+  acts_as_versioned
+  
   scope :removed, where(:removed => true)
   scope :not_removed, where(:removed => (nil or false))
   

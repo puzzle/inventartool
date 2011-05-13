@@ -22,6 +22,8 @@ class Server < ActiveRecord::Base
   has_many :rams, :as => :machine
   has_many :disks, :as => :machine
   
+  acts_as_versioned
+  
   scope :removed, where(:removed => true)
   scope :not_removed, where(:removed => (nil or false))
   

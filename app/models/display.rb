@@ -21,6 +21,8 @@ class Display < ActiveRecord::Base
   belongs_to :distributor
   belongs_to :owner
   
+  acts_as_versioned
+  
   scope :removed, where(:removed => true)
   scope :not_removed, where(:removed => (nil or false))
   

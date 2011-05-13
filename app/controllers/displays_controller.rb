@@ -18,9 +18,16 @@
  
 
 class DisplaysController < CrudController
+  #Remove Module
   require 'modules/remove_module.rb'
   include Remove
   define_model_callbacks :render_removed
+  
+  # Versions Module
+  require 'modules/versions_module.rb'
+  include Versions
+  before_render_show :set_diffhash
+  before_save :set_creator
   
 	self.search_columns = [:model, :serial_number, :notes]
 end

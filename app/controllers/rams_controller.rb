@@ -18,9 +18,16 @@
  
 
 class RamsController < CrudController
+  #Remove Module
   require 'modules/remove_module.rb'
   include Remove
   define_model_callbacks :render_removed
+  
+  # Versions Module
+  require 'modules/versions_module.rb'
+  include Versions
+  before_render_show :set_diffhash
+  before_save :set_creator
   
 	self.search_columns = [:capacity, :description, :serial_number]
 	before_filter :set_machine, :only => [:update, :create]
@@ -48,18 +55,10 @@ class RamsController < CrudController
 			params[model_identifier][:change_notice] = @entry.change_notice
 		end
 	end
-
-	def set_creator
-		@entry.creator = session[:user_ui]
-	end
-
-	def set_diffhash
-		@diffhash = diff_hash
-	end
 	
 	def detach
 		set_entry
- 		@entry.machine_id = nil
+		@entry.machine_id = nil
 		@entry.machine_type = nil
 		detached = save_entry
 		redirect_to :back

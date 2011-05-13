@@ -29,10 +29,10 @@
       </ul>
     </div>
   <% end %>
-<%= f.labeled_input_fields :model, :processor, :serial_number, :service_tag, :express_service_code, :price, :purchase_date%>
+  <%= f.labeled_input_fields :model, :processor, :serial_number, :service_tag, :express_service_code, :price, :purchase_date%>
   <div class="labeled">
     <div class="caption"><%= f.label :warranty_duration %></div>
     <div class="value"><%= f.text_field :warranty_till %></div>
   </div>
-<%= f.labeled_input_fields :owner_changed_on, :previous_owner, :battery_serial_number, :power_supply_serial_number, :mac_addr_lan, :mac_addr_wlan, :notes, :in_repair, :distributor_id, :owner_id%>
+  <%= f.labeled_input_fields :owner_changed_on, :previous_owner, :battery_serial_number, :power_supply_serial_number, :mac_addr_lan, :mac_addr_wlan, :notes, :in_repair, :distributor_id, :owner_id, :change_notice%>
 <%end%>

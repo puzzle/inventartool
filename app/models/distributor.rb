@@ -23,6 +23,8 @@ class Distributor < ActiveRecord::Base
   has_many :disks
   has_many :notebooks
   
+  acts_as_versioned
+  
   scope :removed, where(:removed => true)
   scope :not_removed, where(:removed => (nil or false))
   

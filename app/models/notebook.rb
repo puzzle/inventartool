@@ -21,6 +21,8 @@ class Notebook < ActiveRecord::Base
   belongs_to :distributor
   belongs_to :owner
   
+  acts_as_versioned
+  
   has_many :disks, :as => :machine
   has_many :rams, :as => :machine
   
