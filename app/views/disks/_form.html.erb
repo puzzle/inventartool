@@ -37,7 +37,7 @@
   <%= f.labeled_input_fields :price, :notes, :capacity, :connector, :distributor_id, :in_repair %>
   <div class="labeled">
     <div class="caption"><%= f.label :machine %></div>
-    <div class="value"><%= f.select(:machine, @a_machines, {:prompt => 'Select Machine'}) %></div>
+    <div class="value"><%= f.select(:machine, @a_machines, {:selected => "#{@entry.machine_type}_#{@entry.machine_id}", :prompt => 'Select Machine'}) %></div>
   </div>
   <%= f.labeled_input_fields :change_notice%>
 <% end %>
