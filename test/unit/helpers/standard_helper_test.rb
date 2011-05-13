@@ -54,9 +54,9 @@ class StandardHelperTest < ActionView::TestCase
   end
   
   test "labeled attr" do
-  	result = labeled_attr('foo', :size)
-  	assert result.html_safe?
-  	assert_dom_equal "<div class='labeled'> <div class='caption'>Size</div> <div class='value'>3 chars</div> </div>", result.squish
+    result = labeled_attr('foo', :size)
+    assert result.html_safe?
+    assert_dom_equal "<div class='labeled'> <div class='caption'>Size</div> <div class='value'>3 chars</div> </div>", result.squish
   end
   
   test "alternate row" do

@@ -18,43 +18,43 @@
  */  
 
 body, div, p, td, th {
-	font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
-	font-size: 11pt;
+  font-family: Verdana, Geneva, Helvetica, Arial, sans-serif;
+  font-size: 11pt;
 }
 
 body {
-	text-align: center;
+  text-align: center;
     margin: 50pt 5pt ;
     background-color: #D0CEAE;
 }
 
 #container {
-	padding: 20pt 20pt;
-	margin: 0 auto;
-	text-align: left;
-	width: 700pt;
-	height: 100%;
+  padding: 20pt 20pt;
+  margin: 0 auto;
+  text-align: left;
+  width: 700pt;
+  height: 100%;
     background-color: #FFFDE5;
-	-moz-box-shadow: 0px 0px 10px #a8490b;
+  -moz-box-shadow: 0px 0px 10px #a8490b;
     -webkit-box-shadow: 0px 0px 10px #a8490b;
     box-shadow: 0px 0px 10px #a8490b;
 }
 
 h1 {
-	font-size: 150%;
-	margin: 30px 0 15px 0;
+  font-size: 150%;
+  margin: 30px 0 15px 0;
 }
 
 tr.even {
-	background-color: #EBE4E0;
+  background-color: #EBE4E0;
 }
 
 tr.odd { 
-	background-color: #F8F8F8;
+  background-color: #F8F8F8;
 }
 
 td {
-	vertical-align: top;
+  vertical-align: top;
 }
 
 td p {
@@ -62,51 +62,51 @@ td p {
 }
 
 a {
-	color: #a8490b;
-	text-decoration: none;
+  color: #a8490b;
+  text-decoration: none;
 }
 
 a:hover {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 a:visited {
-	color:  #a8490b;
+  color:  #a8490b;
 }
 
 a img {
-	border: none;
+  border: none;
 }
 
 
 .list {
-	margin-top: 10pt;
+  margin-top: 10pt;
 }
 
 table.list {
-	border-collapse: collapse;
-	width: 100%;
-	padding: 0;
+  border-collapse: collapse;
+  width: 100%;
+  padding: 0;
 }
 
 /* div rendered if no entries available for list */
 div.list {}
 
 table.list th {
-	text-align: left;	
-	background-color: #a8490b;
+  text-align: left;  
+  background-color: #a8490b;
     color: white;
-	font-weight: bold;
+  font-weight: bold;
     padding: 2px 4px;   
 }
 
 table.list th a {
-    color: white;	
+    color: white;  
     text-decoration: none;
 }
 
 table.list td {
-	padding: 2px 4px;	
+  padding: 2px 4px;  
 }
 
 
@@ -117,35 +117,35 @@ table.list td {
 }
 
 .right {
-	text-align: right;
+  text-align: right;
 }
 
 .center {
-	text-align: center;
+  text-align: center;
 }
 
 .labeled {
-	vertical-align: top;
-	margin: 1pt;
+  vertical-align: top;
+  margin: 1pt;
 }
 
 .labeled .caption {
-	font-style: italic;
-	width: 190pt;
-	padding-right: 5pt;
-	float: left;
+  font-style: italic;
+  width: 190pt;
+  padding-right: 5pt;
+  float: left;
 }
 
 .labeled .value {
-	margin-left: 125pt;
+  margin-left: 125pt;
 }
 
 .labeled .value p {
-	margin: 0px;
+  margin: 0px;
 }
 
 .actions {
-	float: right;
+  float: right;
 }
 
 a.action {
@@ -153,7 +153,7 @@ a.action {
 }
 
 a.action img {
-	vertical-align: text-top;
+  vertical-align: text-top;
 }
 
 .cancel {
@@ -162,9 +162,9 @@ a.action img {
 }
 
 .required {
-	font-size: 80%;
-	vertical-align: top;
-	margin-left: 1pt;
+  font-size: 80%;
+  vertical-align: top;
+  margin-left: 1pt;
 }
 
 #flash_notice, #flash_alert {
@@ -183,30 +183,30 @@ a.action img {
 }
 
 #error_explanation {
-	border: solid 2pt #da9;
-	margin: 10pt;
-	padding: 5pt 10pt;
-	background-color: #fec;
+  border: solid 2pt #da9;
+  margin: 10pt;
+  padding: 5pt 10pt;
+  background-color: #fec;
 }
 
 #error_explanation h2 {
-	font-size: 11pt;
-	margin-top: 0pt;
+  font-size: 11pt;
+  margin-top: 0pt;
 }
 
 #error_explanation ul {
-	margin-bottom: 5pt;
+  margin-bottom: 5pt;
 }
 
 .value div.field_with_errors {
-	background-color: #da9;
-	display: inline-block;
-	padding: 1px 1px;
+  background-color: #da9;
+  display: inline-block;
+  padding: 1px 1px;
 }
 
 #menu {
     background: #333;
-	-moz-box-shadow: 0px 3px 3px #a8490b;
+  -moz-box-shadow: 0px 3px 3px #a8490b;
     -webkit-box-shadow: 0px 3px 3px #a8490b;
     box-shadow: 0px 3px 3px #a8490b;
     float: left;
@@ -242,7 +242,7 @@ a.action img {
     box-shadow: 1px 2px 2px #FFF6B3;
 }
 #menu_stop a:hover {
-	background: #333333;
-	-moz-box-shadow: none;
-	box-shadow: none;
+  background: #333333;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }

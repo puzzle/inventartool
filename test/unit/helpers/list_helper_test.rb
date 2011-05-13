@@ -147,11 +147,11 @@ class ListHelperTest < ActionView::TestCase
   end
   
   def params
-  	{}
+    {}
   end
   
   def sortable?(attr)
-  	true
+    true
   end
 
     

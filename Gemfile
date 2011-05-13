@@ -6,9 +6,9 @@ gem 'rails', '3.0.7'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development do
-	gem 'dry_crud'
-	gem 'sqlite3'
-	gem 'ruby-debug-ide'
+  gem 'dry_crud'
+  gem 'sqlite3'
+  gem 'ruby-debug-ide'
 end
 
 group :production do

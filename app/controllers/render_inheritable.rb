@@ -65,7 +65,7 @@ module RenderInheritable
     def inheritable_controller(param = nil)
       descendants = inheritable_root_controller.descendants
       c = find_inheritable_artifact(param) do |folder|
-      	descendants.any? { |s| s.controller_path == folder }
+        descendants.any? { |s| s.controller_path == folder }
       end
       c || inheritable_root_controller.controller_path
     end

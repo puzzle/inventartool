@@ -65,11 +65,11 @@ module CrudHelper
   end
   
   def link_table_action(image, url, html_options = {})
-  	link_to(action_icon(image), url, html_options) 
+    link_to(action_icon(image), url, html_options) 
   end
   
   def action_col(table, &block)
-  	table.col('', :class => 'center', &block)
+    table.col('', :class => 'center', &block)
   end
   
 end

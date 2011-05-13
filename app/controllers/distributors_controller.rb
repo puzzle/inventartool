@@ -29,5 +29,5 @@ class DistributorsController < CrudController
   before_render_show :set_diffhash
   before_save :set_creator
   
-	self.search_columns = [:name]
+  self.search_columns = [:name]
 end

@@ -17,21 +17,21 @@
 # | # COPYRIGHT HEADER END # 
  %> 
 
-<form name="hallo" >	
-	<p>From: <input type="date" name="lowest_warranty_end_date" size="30" value="<%= @low_warranty%>" maxlength="30" /> *To:<input type="date" name="warranty_end_date" value="<%= @max_warranty%>" size="30" maxlength="30" /></p>
-	<input type="submit" value="Search" />
+<form name="hallo" >  
+  <p>From: <input type="date" name="lowest_warranty_end_date" size="30" value="<%= @low_warranty%>" maxlength="30" /> *To:<input type="date" name="warranty_end_date" value="<%= @max_warranty%>" size="30" maxlength="30" /></p>
+  <input type="submit" value="Search" />
 </form>
 <div class="field">
 <h4>Notebooks</h4>
 <%= table(@notebooks) do |t|
-	t.attrs :model, :serial_number, :warranty_till
+  t.attrs :model, :serial_number, :warranty_till
 end%>
 <h4>Servers</h4>
 <%= table(@servers) do |t|
-	t.attrs :model, :serial_number, :warranty_till
+  t.attrs :model, :serial_number, :warranty_till
 end%>
 <h4>Disks</h4>
 <%= table(@disks) do |t|
-	t.attrs :model, :serial_number, :warranty_till
+  t.attrs :model, :serial_number, :warranty_till
 end%>
 </div>

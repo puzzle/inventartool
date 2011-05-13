@@ -18,11 +18,11 @@
  %> 
 
 <div class="field">
-	<h3>Rams</h3>
-	<%= form_tag( { :action => "attach", }, { :method => :post }) %>
-	<table>
+  <h3>Rams</h3>
+  <%= form_tag( { :action => "attach", }, { :method => :post }) %>
+  <table>
   <tr>
-  	<%@table_headers.each do |a|%>
+    <%@table_headers.each do |a|%>
     <th><%="#{a}"%></th>
     <%end%>
     <th>Attach?</th>
@@ -33,8 +33,8 @@
 
 <% @list.each do |element| %>
   <tr>
-  	<% element[:attrs].each do |attr| %>
-    	<td><%= attr %></td>
+    <% element[:attrs].each do |attr| %>
+      <td><%= attr %></td>
     <%end%>
     <td><%= check_box("#{element[:id]}", "attach",{}) %></td>
   </tr>

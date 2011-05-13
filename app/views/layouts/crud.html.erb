@@ -31,33 +31,33 @@
 <body>
 
 <div id="container">
-	<ul id="menu">
-		<%= render :partial => 'layouts/menu' %>
-	</ul>
-	
-	<h1><%= @title %></h1>
-	
-	<% if flash.notice.present? %>
-		<div id="flash_notice"><%= flash.notice %></div>
-	<% elsif flash.alert.present? %>
-		<div id="flash_alert"><%= flash.alert %></div>
-	<% end %>
-	
-	<div class="actions">
-		<%= yield :actions %> 
-	</div>
-	
-	<div id="content">
-		<%= yield %>
-	</div>
-	<%= clear %>
-	<div id="nav_bottom">
-		<ul>
-		<li><%= link_to "Dashboard", :controller => "dashboard" %></li>
-		<li><%= link_to "Warranty", :warranty %></li>
-		<li><%= link_to "Search", :search %></li>
-		</ul>
-	</div>
+  <ul id="menu">
+    <%= render :partial => 'layouts/menu' %>
+  </ul>
+  
+  <h1><%= @title %></h1>
+  
+  <% if flash.notice.present? %>
+    <div id="flash_notice"><%= flash.notice %></div>
+  <% elsif flash.alert.present? %>
+    <div id="flash_alert"><%= flash.alert %></div>
+  <% end %>
+  
+  <div class="actions">
+    <%= yield :actions %> 
+  </div>
+  
+  <div id="content">
+    <%= yield %>
+  </div>
+  <%= clear %>
+  <div id="nav_bottom">
+    <ul>
+    <li><%= link_to "Dashboard", :controller => "dashboard" %></li>
+    <li><%= link_to "Warranty", :warranty %></li>
+    <li><%= link_to "Search", :search %></li>
+    </ul>
+  </div>
 </div>
 
 </body>

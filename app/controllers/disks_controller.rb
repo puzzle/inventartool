@@ -30,49 +30,49 @@ class DisksController < CrudController
   before_save :set_creator
 
 
-	self.search_columns = [:model, :serial_number, :notes, :capacity]
-	
-	before_filter :set_machine, :set_change_notice, :set_warranty, :only => [:update, :create]
-	
-	before_render_form :set_values
-	
-	def set_values
-		@a_machines = []
-	    Notebook.all.each do |machine|
-	    	@a_machines << ["Notebook: #{machine.label}", "Notebook_#{machine.id}"]
-	    end
-	    Server.all.each do |machine|
-	    	@a_machines << ["Server: #{machine.label}", "Server_#{machine.id}"]
-	    end
-	    @a_machines << ["(none)", nil ]
-	    if (@entry.warranty_till != nil)
-	    	@entry.warranty_till = ((@entry.warranty_till - @entry.purchase_date).to_i)/365
-	    end
-	end
+  self.search_columns = [:model, :serial_number, :notes, :capacity]
+  
+  before_filter :set_machine, :set_change_notice, :set_warranty, :only => [:update, :create]
+  
+  before_render_form :set_values
+  
+  def set_values
+    @a_machines = []
+      Notebook.all.each do |machine|
+        @a_machines << ["Notebook: #{machine.label}", "Notebook_#{machine.id}"]
+      end
+      Server.all.each do |machine|
+        @a_machines << ["Server: #{machine.label}", "Server_#{machine.id}"]
+      end
+      @a_machines << ["(none)", nil ]
+      if (@entry.warranty_till != nil)
+        @entry.warranty_till = ((@entry.warranty_till - @entry.purchase_date).to_i)/365
+      end
+  end
 
-	def set_machine
-		m = params[model_identifier].delete(:machine).split("_")
-		@entry.machine_type = m[0]
-		@entry.machine_id = m[1]
-	end
-	def set_change_notice
-		if (params[model_identifier][:change_notice] == "")
-			params[model_identifier][:change_notice] = @entry.change_notice
-		end
-	end
-	
-	def set_warranty
-		@warranty_till = (params[model_identifier][:warranty_till]).to_i
-		@purchase_date = Date.parse( {"1i"=>params[model_identifier][:"purchase_date(1i)"], "2i"=>params[model_identifier][:"purchase_date(2i)"], "3i"=>params[model_identifier][:"purchase_date(3i)"]}.to_a.sort.collect{|c| c[1]}.join("-"))
-		params[model_identifier][:warranty_till] = @purchase_date + @warranty_till.years
-	end
-	
-	def detach
-		set_entry
- 		@entry.machine_id = nil
-		@entry.machine_type = nil
-		detached = save_entry
-		redirect_to :back
-	end
-	
+  def set_machine
+    m = params[model_identifier].delete(:machine).split("_")
+    @entry.machine_type = m[0]
+    @entry.machine_id = m[1]
+  end
+  def set_change_notice
+    if (params[model_identifier][:change_notice] == "")
+      params[model_identifier][:change_notice] = @entry.change_notice
+    end
+  end
+  
+  def set_warranty
+    @warranty_till = (params[model_identifier][:warranty_till]).to_i
+    @purchase_date = Date.parse( {"1i"=>params[model_identifier][:"purchase_date(1i)"], "2i"=>params[model_identifier][:"purchase_date(2i)"], "3i"=>params[model_identifier][:"purchase_date(3i)"]}.to_a.sort.collect{|c| c[1]}.join("-"))
+    params[model_identifier][:warranty_till] = @purchase_date + @warranty_till.years
+  end
+  
+  def detach
+    set_entry
+     @entry.machine_id = nil
+    @entry.machine_type = nil
+    detached = save_entry
+    redirect_to :back
+  end
+  
 end

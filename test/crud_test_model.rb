@@ -32,7 +32,7 @@ class CrudTestModel < ActiveRecord::Base #:nodoc:
   end
   
   def chatty
-  	remarks.size
+    remarks.size
   end
 end
 
@@ -62,8 +62,8 @@ class CrudTestModelsController < CrudController #:nodoc:
   
   def list_entries
     entries = super
-  	if params[:filter]
-  	  entries = entries.where(['rating < ?', 3]).except(:order).order('children DESC')
+    if params[:filter]
+      entries = entries.where(['rating < ?', 3]).except(:order).order('children DESC')
     end
     entries
   end

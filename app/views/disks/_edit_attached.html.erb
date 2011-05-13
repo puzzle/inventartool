@@ -21,8 +21,8 @@
 <ul>
 <% @entry.disks.each do |d| %>
 <li><%= link_to "#{d.model} #{d.capacity}GB", disk_path(d.id)%> |
-	<%= link_action 'detach', 'delete', url_options = {:controller => 'disks', :id => d.id, :action => 'detach'}, :confirm => "Are you sure?" %>
-	<%= link_to "Same Disks", disks_path + "?utf8=✓&returning=true&q=" + (d.model).to_s, :target=>"_blank"%>
+  <%= link_action 'detach', 'delete', url_options = {:controller => 'disks', :id => d.id, :action => 'detach'}, :confirm => "Are you sure?" %>
+  <%= link_to "Same Disks", disks_path + "?utf8=✓&returning=true&q=" + (d.model).to_s, :target=>"_blank"%>
 </li>
 <% end %>
 </ul>

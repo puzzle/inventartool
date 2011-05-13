@@ -19,85 +19,85 @@
 
 <div id="user">Angemeldet als: <%= @user_name + " (" + @user_uid + ")"%></div>
 <div id="dashboard">
-	<div id="dashboard_1" class="division" >
-		<div>
-			<h2>Servers</h2>
-			<ul>
-				<li><%= link_to "List Servers", servers_path%></li>
-				<li><%= link_action('New Server', 'add', 'servers/new', {}) %></li>
-			</ul>
-			
-		</div>
-		<div>
-			<h2>Notebooks</h2>
-			<ul>
-				<li><%= link_to "List Notebooks", notebooks_path%></li>
-				<li><%= link_action('New Notebook', 'add', 'notebooks/new', {}) %></li>
-			</ul>
-		</div>
-		<div>
-			<h2>Displays</h2>
-			<ul>
-				<li><%= link_to "List Displays", displays_path%></li>
-				<li><%= link_action('New Display', 'add', 'displays/new', {}) %></li>
-			</ul>
-		</div>
-	</div>
-	
-	<div id="dashboard_2" class="division" >
-		<div>
-			<h2>Disks</h2>
-			<ul>
-				<li><%= link_to "List Disks", disks_path%></li>
-				<li><%= link_action('New Disk', 'add', 'disks/new', {}) %></li>
-			</ul>
-		</div>
-		
-		<div>
-			<h2>Rams</h2>
-			<ul>
-				<li><%= link_to "List Rams", rams_path%></li>
-				<li><%= link_action('New Ram', 'add', 'rams/new', {}) %></li>
-			</ul>
-		</div>
+  <div id="dashboard_1" class="division" >
+    <div>
+      <h2>Servers</h2>
+      <ul>
+        <li><%= link_to "List Servers", servers_path%></li>
+        <li><%= link_action('New Server', 'add', 'servers/new', {}) %></li>
+      </ul>
+      
+    </div>
+    <div>
+      <h2>Notebooks</h2>
+      <ul>
+        <li><%= link_to "List Notebooks", notebooks_path%></li>
+        <li><%= link_action('New Notebook', 'add', 'notebooks/new', {}) %></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Displays</h2>
+      <ul>
+        <li><%= link_to "List Displays", displays_path%></li>
+        <li><%= link_action('New Display', 'add', 'displays/new', {}) %></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div id="dashboard_2" class="division" >
+    <div>
+      <h2>Disks</h2>
+      <ul>
+        <li><%= link_to "List Disks", disks_path%></li>
+        <li><%= link_action('New Disk', 'add', 'disks/new', {}) %></li>
+      </ul>
+    </div>
+    
+    <div>
+      <h2>Rams</h2>
+      <ul>
+        <li><%= link_to "List Rams", rams_path%></li>
+        <li><%= link_action('New Ram', 'add', 'rams/new', {}) %></li>
+      </ul>
+    </div>
 
-		<div>
-			<h2>Owners</h2>
-			<ul>
-				<li><%= link_to "List Owners", owners_path%></li>
-				<li><%= link_action('New Owner', 'add', 'owners/new', {}) %></li>
-			</ul>
-		</div>
-		
-		<div>
-			<h2>Distributors</h2>
-			<ul>
-				<li><%= link_to "List Distributors", distributors_path%></li>
-				<li><%= link_action('New Distributor', 'add', 'distributors/new', {}) %></li>
-			</ul>
-		</div>
-	</div>
-	
-	<div id="dashboard_3" class="division" >
-		<div>
-			<h2>Stock</h2>
-			<ul>
-				<li><%= link_to "Manage Stock", stock_objects_path%></li>
-			</ul>
-		</div>
-			
-		<div>
-			<h2>Warranty</h2>
-			<ul>
-				<li><%= link_to "Warranty Ends", :warranty %></li>
-			</ul>
-		</div>
+    <div>
+      <h2>Owners</h2>
+      <ul>
+        <li><%= link_to "List Owners", owners_path%></li>
+        <li><%= link_action('New Owner', 'add', 'owners/new', {}) %></li>
+      </ul>
+    </div>
+    
+    <div>
+      <h2>Distributors</h2>
+      <ul>
+        <li><%= link_to "List Distributors", distributors_path%></li>
+        <li><%= link_action('New Distributor', 'add', 'distributors/new', {}) %></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div id="dashboard_3" class="division" >
+    <div>
+      <h2>Stock</h2>
+      <ul>
+        <li><%= link_to "Manage Stock", stock_objects_path%></li>
+      </ul>
+    </div>
+      
+    <div>
+      <h2>Warranty</h2>
+      <ul>
+        <li><%= link_to "Warranty Ends", :warranty %></li>
+      </ul>
+    </div>
 
-		<div>
-			<h2>Search</h2>
-			<ul>
-				<li><%= link_to "Search", :search %></li>
-			</ul>
-		</div>
-	</div>
+    <div>
+      <h2>Search</h2>
+      <ul>
+        <li><%= link_to "Search", :search %></li>
+      </ul>
+    </div>
+  </div>
 </div>

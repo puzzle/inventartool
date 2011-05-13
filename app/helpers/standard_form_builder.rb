@@ -101,13 +101,13 @@ class StandardFormBuilder < ActionView::Helpers::FormBuilder
   
   # Render a float field.
   def float_field(attr, html_options = {})
-  	html_options[:step] ||= 'any' # Fix for Chrome Browser, accepts only integers by default
+    html_options[:step] ||= 'any' # Fix for Chrome Browser, accepts only integers by default
     number_field(attr, html_options)
   end 
   
   # Render a decimal field.
   def decimal_field(attr, html_options = {})
-  	html_options[:step] ||= 'any' # Fix for Chrome Browser, accepts only integers by default
+    html_options[:step] ||= 'any' # Fix for Chrome Browser, accepts only integers by default
     number_field(attr, html_options)
   end
   

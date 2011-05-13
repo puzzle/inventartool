@@ -21,8 +21,8 @@
 <ul>
 <% @entry.rams.each do |r| %>
 <li><%= link_to "#{r.description} #{r.capacity}GB", ram_path(r.id)%> |
-	<%= link_action 'detach', 'delete', url_options = {:controller => 'rams', :id => r.id, :action => 'detach'}, :confirm => "Are you sure?" %>
-	<%= link_to "Same RAMS", rams_path + "?utf8=✓&returning=true&q=" + (r.description).to_s, :target=>"_blank"%>
+  <%= link_action 'detach', 'delete', url_options = {:controller => 'rams', :id => r.id, :action => 'detach'}, :confirm => "Are you sure?" %>
+  <%= link_to "Same RAMS", rams_path + "?utf8=✓&returning=true&q=" + (r.description).to_s, :target=>"_blank"%>
 </li>
 <% end %>
 </ul>

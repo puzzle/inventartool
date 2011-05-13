@@ -29,5 +29,5 @@ class DisplaysController < CrudController
   before_render_show :set_diffhash
   before_save :set_creator
   
-	self.search_columns = [:model, :serial_number, :notes]
+  self.search_columns = [:model, :serial_number, :notes]
 end
