@@ -7,12 +7,28 @@ class SearchController < CrudController
     @disks = Disk.all
     @rams = Ram.all
     @displays = Display.all
+    
+    params[:notebooks] = "on"
+    params[:servers] = "on"
+    params[:disks] = "on"
+    params[:rams] = "on"
+    params[:displays] = "on"
   end
   
   def search
+    @title = "Search"
+    blnRemoved = false
+    blnCheck = false
+    if (params[:removed] == "on")
+      blnRemoved = true
+    end
+    
     #----- Notebooks
     if (params[:notebooks] == "on")    
-      @notebooks = Notebook.all
+      blnCheck = true
+      if (params[:standard_searchField] != "" || params[:owner] != "" || params[:distributor] != "")
+        @notebooks = Notebook.where("removed = :removed", :removed => blnRemoved)
+      end
       
       if (params[:standard_searchField] != "") 
         @notebooks = @notebooks & standard_search(@notebooks)
@@ -25,9 +41,13 @@ class SearchController < CrudController
       if (params[:distributor] != "") 
         @notebooks = @notebooks & distributor_search(@notebooks)
       end
+     end
     #----- Servers
-    elsif (params[:servers] == "on")
-       @servers = Server.all
+    if (params[:servers] == "on")
+      blnCheck = true
+      if (params[:standard_searchField] != "" || params[:distributor] != "")
+        @servers = Server.where("removed = :removed", :removed => blnRemoved)
+       end
       
       if (params[:standard_searchField] != "") 
         @servers = @servers & standard_search(@servers)
@@ -36,10 +56,13 @@ class SearchController < CrudController
       if (params[:distributor] != "") 
         @servers = @servers & distributor_search(@servers)
       end
-
+    end
     #----- Disks
-    elsif (params[:disks] == "on")
-      @disks = Disk.all
+    if (params[:disks] == "on")
+      blnCheck = true
+      if (params[:standard_searchField] != "" || params[:distributor] != "" || params[:machine] != "")
+        @disks = Disk.where("removed = :removed", :removed => blnRemoved)
+      end
       
       if (params[:standard_searchField] != "") 
         @disks = @disks & standard_search(@disks)
@@ -52,10 +75,14 @@ class SearchController < CrudController
       if (params[:distributor] != "") 
         @disks = @disks & distributor_search(@disks)
       end
+    end
     
     #----- Rams
-    elsif (params[:rams] == "on")
-      @rams = Ram.all
+    if (params[:rams] == "on")
+      blnCheck = true
+      if (params[:standard_searchField] != "" || params[:distributor] != "" || params[:machine] != "")
+        @rams = Ram.where("removed = :removed", :removed => blnRemoved)
+      end
       
       if (params[:standard_searchField] != "") 
         @rams = @rams & standard_search(@rams)
@@ -68,10 +95,14 @@ class SearchController < CrudController
       if (params[:distributor] != "") 
         @rams = @rams & distributor_search(@rams)
       end
+    end
     
     #----- Displays
-    elsif (params[:displays] == "on")
-      @displays = Display.all
+    if (params[:displays] == "on")
+      blnCheck = true
+      if (params[:standard_searchField] != "" || params[:owner] != "" || params[:distributor] != "")
+        @displays = Display.where("removed = :removed", :removed => blnRemoved)
+      end
       
       if (params[:standard_searchField] != "") 
         @displays = @displays & standard_search(@displays)
@@ -84,7 +115,8 @@ class SearchController < CrudController
       if (params[:distributor] != "") 
         @displays = @displays & distributor_search(@displays)
       end
-    else
+     end
+    if (blnCheck == false)
       @notebooks = Notebook.all
       @servers = Server.all
       @disks = Disk.all
@@ -147,11 +179,11 @@ class SearchController < CrudController
   #----------------------------------------------------------------------|
   # Looks wich columns are used for the Search Method
   #----------------------------------------------------------------------|
-  def standard_search(object)
+  def standard_search(objects)
     return_objects = []
-    object.each do |o|
+    objects.each do |o|
       o.attrs_list.each do |x|
-        if (o.read_attribute(x).to_s.match(params[:standard_searchField]))
+        if (o.read_attribute(x).to_s =~ /#{params[:standard_searchField]}/i)
          return_objects << o
          end
       end
