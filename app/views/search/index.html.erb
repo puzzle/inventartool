@@ -2,101 +2,83 @@
   <%= form_tag( {:action => "search"}, {:name => "whole_search"}) %>
     <table>
       <tr>
-        <td><p><input type="checkbox" name="notebooks" onclick="special_fields('notebooks')"/> Notebooks</p></td>
-        <td><p><input type="checkbox" name="servers" onclick="special_fields('servers')"/> Servers</p></td>
+        <td><p><input type="checkbox" checked="true" name="notebooks" onclick="special_fields('notebooks')"/> Notebooks</p></td>
+        <td><p><input type="checkbox" checked="true" name="servers" onclick="special_fields('servers')"/> Servers</p></td>
       </tr>
       <tr>
-        <td><p><input type="checkbox" name="disks" onclick="special_fields('disks')"/> Disks</p></td>
-        <td><p><input type="checkbox" name="rams" onclick="special_fields('rams')"/> Rams</p></td>
+        <td><p><input type="checkbox" checked="true" name="disks" onclick="special_fields('disks')"/> Disks</p></td>
+        <td><p><input type="checkbox" checked="true" name="rams" onclick="special_fields('rams')"/> Rams</p></td>
       </tr>
       <tr>
-        <td><p><input type="checkbox" name="displays" onclick="special_fields('displays')"/> Displays</p></td>
+        <td><p><input type="checkbox" checked="true" name="displays" onclick="special_fields('displays')"/> Displays</p></td>
       </tr>
     </table>
+    <p><input type="checkbox" name="removed" /> Search in removed Objects</p>
     <div id="searchfields">
       <b>Standard Search Attributes</b>
         <p class="search_field">Search Value: <input type="text" name="standard_searchField" /></p>
       
       <b>Special Search Attributes</b>
-      <div id="special_field_owner" style="visibility:hidden">
+      <div id="special_field_owner">
         <p class="search_field">Owner: <input type="text" name="owner" /></p>
       </div>
-      <div id="special_field_distributor" style="visibility:hidden">
+      <div id="special_field_distributor">
         <p class="search_field">Distributor: <input type="text" name="distributor" /></p>
       </div>
-      <div id="special_field_machine" style="visibility:hidden">
+      <div id="special_field_machine">
         <p class="search_field">Machine: <input type="text" name="machine" /></p>
       </div>
           <script type="text/javascript">
             function special_fields(x) {
-                  if (document.whole_search.servers.checked == true) {
-                    if (document.whole_search.disks.checked == true || document.whole_search.rams.checked == true) {
-                      if (document.whole_search.notebooks.checked == true || document.whole_search.displays.checked == true) {
-                        document.getElementById('special_field_owner').style.visibility = 'visible';
-                        document.getElementById('special_field_distributor').style.visibility = 'visible';
-                        document.getElementById('special_field_machine').style.visibility = 'visible';
-                      } else {
-                        document.getElementById('special_field_owner').style.visibility = 'hidden';
-                        document.getElementById('special_field_distributor').style.visibility = 'visible';
-                        document.getElementById('special_field_machine').style.visibility = 'visible';
-                      } 
-                    } else {
-                      if (document.whole_search.notebooks.checked == true || document.whole_search.displays.checked == true) {
-                        document.getElementById('special_field_owner').style.visibility = 'visible';
-                        document.getElementById('special_field_distributor').style.visibility = 'visible';
-                        document.getElementById('special_field_machine').style.visibility = 'hidden';
-                      } else {
-                        document.getElementById('special_field_owner').style.visibility = 'hidden';
-                        if (document.whole_search.servers.checked == true) {
-                          document.getElementById('special_field_distributor').style.visibility = 'visible';
-                        } else {
-                          document.getElementById('special_field_distributor').style.visibility = 'hidden';
-                        }
-                        document.getElementById('special_field_machine').style.visibility = 'hidden';
-                      }
-                    }
-                  } else {
-                    if (document.whole_search.notebooks.checked == true || document.whole_search.displays.checked == true) {
-                      document.getElementById('special_field_owner').style.visibility = 'visible';
-                      document.getElementById('special_field_distributor').style.visibility = 'visible';
-                    } else {
-                      document.getElementById('special_field_owner').style.visibility = 'hidden';
-                      document.getElementById('special_field_distributor').style.visibility = 'hidden';
-                    }
-                    if (document.whole_search.disks.checked == true || document.whole_search.rams.checked == true) {
-                      if (document.whole_search.notebooks.checked == true || document.whole_search.displays.checked == true) {
-                        document.getElementById('special_field_owner').style.visibility = 'visible';
-                        document.getElementById('special_field_distributor').style.visibility = 'visible';
-                        document.getElementById('special_field_machine').style.visibility = 'visible';
-                      } else {
-                        document.getElementById('special_field_owner').style.visibility = 'hidden';
-                        document.getElementById('special_field_distributor').style.visibility = 'visible';
-                        document.getElementById('special_field_machine').style.visibility = 'visible';
-                      } 
-                    } else {
-                      if (document.whole_search.notebooks.checked == true || document.whole_search.displays.checked == true) {
-                        document.getElementById('special_field_owner').style.visibility = 'visible';
-                        document.getElementById('special_field_distributor').style.visibility = 'visible';
-                        document.getElementById('special_field_machine').style.visibility = 'hidden';
-                      } else {
-                        document.getElementById('special_field_owner').style.visibility = 'hidden';
-                        if (document.whole_search.servers.checked == true) {
-                          document.getElementById('special_field_distributor').style.visibility = 'visible';
-                        } else {
-                          document.getElementById('special_field_distributor').style.visibility = 'hidden';
-                        }
-                        document.getElementById('special_field_machine').style.visibility = 'hidden';
-                      }
-                    }
-                  }
+              var owner_field = new Boolean(false)
+              var distributor_field = new Boolean(false)
+              var machine_field = new Boolean(false)
+
+              if (document.whole_search.notebooks.checked == true) {
+               distributor_field = true
+               owner_field = true
               }
+              
+              if (document.whole_search.servers.checked == true) {
+               distributor_field = true
+              }
+              if (document.whole_search.disks.checked == true) {
+               distributor_field = true
+               machine_field = true
+              }
+              if (document.whole_search.rams.checked == true) {
+               machine_field = true
+              }
+              if (document.whole_search.displays.checked == true) {
+               distributor_field = true
+               owner_field = true
+              }
+
+              if (distributor_field == true) {
+                document.getElementById('special_field_distributor').style.display = 'block'
+              } else {
+                document.getElementById('special_field_distributor').style.display = 'none'
+              }
+
+              if (owner_field == true) {
+                document.getElementById('special_field_owner').style.display = 'block'
+              } else {
+                document.getElementById('special_field_owner').style.display = 'none'
+              }
+
+              if (machine_field == true) {
+                document.getElementById('special_field_machine').style.display = 'block'
+              } else {
+                document.getElementById('special_field_machine').style.display = 'none'
+              }
+          }
           </script>
       
-      <input type="submit" value="Search"/>
+      <div><input type="submit" value="Search"/></div>
     </div>
   </form>
 </div>
-<div id="listContent">
+<div id="listContent" style="clear:both;">
   <h3>Lists</h3>
   <div class="field">
   <h4>Notebooks</h4>
