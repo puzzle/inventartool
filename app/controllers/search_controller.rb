@@ -30,6 +30,10 @@ class SearchController < CrudController
         @notebooks = Notebook.where("removed = :removed", :removed => blnRemoved)
       end
       
+      if (params[:log] == "on")
+          @notebooks = search_log_history(@notebooks)
+      end
+      
       if (params[:standard_searchField] != "") 
         @notebooks = @notebooks & standard_search(@notebooks)
       end
@@ -48,7 +52,10 @@ class SearchController < CrudController
       if (params[:standard_searchField] != "" || params[:distributor] != "")
         @servers = Server.where("removed = :removed", :removed => blnRemoved)
        end
-      
+       
+      if (params[:log] == "on")
+          @servers = search_log_history(@servers)
+       end
       if (params[:standard_searchField] != "") 
         @servers = @servers & standard_search(@servers)
       end
@@ -62,6 +69,10 @@ class SearchController < CrudController
       blnCheck = true
       if (params[:standard_searchField] != "" || params[:distributor] != "" || params[:machine] != "")
         @disks = Disk.where("removed = :removed", :removed => blnRemoved)
+      end
+      
+      if (params[:log] == "on")
+          @disks = search_log_history(@disks)
       end
       
       if (params[:standard_searchField] != "") 
@@ -84,6 +95,10 @@ class SearchController < CrudController
         @rams = Ram.where("removed = :removed", :removed => blnRemoved)
       end
       
+      if (params[:log] == "on")
+          @rams = search_log_history(@rams)
+      end
+      
       if (params[:standard_searchField] != "") 
         @rams = @rams & standard_search(@rams)
       end
@@ -102,6 +117,10 @@ class SearchController < CrudController
       blnCheck = true
       if (params[:standard_searchField] != "" || params[:owner] != "" || params[:distributor] != "")
         @displays = Display.where("removed = :removed", :removed => blnRemoved)
+      end
+      
+      if (params[:log] == "on")
+          @displays = search_log_history(@displays)
       end
       
       if (params[:standard_searchField] != "") 
@@ -191,4 +210,12 @@ class SearchController < CrudController
     return_objects
   end
   
+  def search_log_history(objects)
+    return_objects = []
+    obj = objects.first.class
+    objects.each do |n|
+      n.versions.collect{|o| (sv=obj.find(n.id)).revert_to(o.version); return_objects << sv }
+    end
+    return_objects
+  end
 end
