@@ -21,8 +21,6 @@ class Notebook < ActiveRecord::Base
   belongs_to :distributor
   belongs_to :owner
   
-  validate :purchase_date => :present
-  
   acts_as_versioned
   
   has_many :disks, :as => :machine
