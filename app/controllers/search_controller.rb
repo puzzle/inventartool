@@ -47,10 +47,9 @@ class SearchController < CrudController
       blnCheck = true
       if (params[:standard_searchField] != "" || params[:owner] != "" || params[:distributor] != "")
         @notebooks = Notebook.where("removed = :removed", :removed => blnRemoved)
-      end
-      
-      if (params[:log] == "on")
+        if (params[:log] == "on")
           @notebooks = search_log_history(@notebooks)
+        end
       end
       
       if (params[:standard_searchField] != "") 
@@ -70,11 +69,11 @@ class SearchController < CrudController
       blnCheck = true
       if (params[:standard_searchField] != "" || params[:distributor] != "")
         @servers = Server.where("removed = :removed", :removed => blnRemoved)
-       end
-       
-      if (params[:log] == "on")
+        if (params[:log] == "on")
           @servers = search_log_history(@servers)
+        end
        end
+      
       if (params[:standard_searchField] != "") 
         @servers = @servers & standard_search(@servers)
       end
@@ -88,10 +87,9 @@ class SearchController < CrudController
       blnCheck = true
       if (params[:standard_searchField] != "" || params[:distributor] != "" || params[:machine] != "")
         @disks = Disk.where("removed = :removed", :removed => blnRemoved)
-      end
-      
-      if (params[:log] == "on")
+        if (params[:log] == "on")
           @disks = search_log_history(@disks)
+        end
       end
       
       if (params[:standard_searchField] != "") 
@@ -112,10 +110,9 @@ class SearchController < CrudController
       blnCheck = true
       if (params[:standard_searchField] != "" || params[:distributor] != "" || params[:machine] != "")
         @rams = Ram.where("removed = :removed", :removed => blnRemoved)
-      end
-      
-      if (params[:log] == "on")
+        if (params[:log] == "on")
           @rams = search_log_history(@rams)
+        end
       end
       
       if (params[:standard_searchField] != "") 
@@ -136,10 +133,9 @@ class SearchController < CrudController
       blnCheck = true
       if (params[:standard_searchField] != "" || params[:owner] != "" || params[:distributor] != "")
         @displays = Display.where("removed = :removed", :removed => blnRemoved)
-      end
-      
-      if (params[:log] == "on")
+        if (params[:log] == "on")
           @displays = search_log_history(@displays)
+        end
       end
       
       if (params[:standard_searchField] != "") 
@@ -154,7 +150,7 @@ class SearchController < CrudController
         @displays = @displays & distributor_search(@displays)
       end
      end
-    if (blnCheck == false)
+    if (blnCheck == false || params[:standard_searchField] == "" && params[:owner] == "" && params[:distributor] == "")
       @notebooks = Notebook.all
       @servers = Server.all
       @disks = Disk.all
