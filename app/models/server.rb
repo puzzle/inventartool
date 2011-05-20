@@ -32,11 +32,11 @@ class Server < ActiveRecord::Base
   end
   
   def age_in_days
-    (Date.today - purchase_date).to_s
+    Date.today - purchase_date
   end
   
   def warranty_end_in_days
-    (warranty_till - Date.today).to_s
+    warranty_till - Date.today
   end
   
   def attrs_list

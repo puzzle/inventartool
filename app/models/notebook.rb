@@ -21,6 +21,8 @@ class Notebook < ActiveRecord::Base
   belongs_to :distributor
   belongs_to :owner
   
+  validate :purchase_date => :present
+  
   acts_as_versioned
   
   has_many :disks, :as => :machine
@@ -34,11 +36,11 @@ class Notebook < ActiveRecord::Base
   end
   
   def age_in_days
-    (Date.today - purchase_date).to_s
+    Date.today - purchase_date
   end
   
   def warranty_end_in_days
-    (warranty_till - Date.today).to_s
+      warranty_till - Date.today
   end
   
   def attrs_list
