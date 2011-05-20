@@ -34,6 +34,6 @@ class Display < ActiveRecord::Base
     [:model, :serial_number]
   end
   def self.list_columns
-    [:version, :model, :serial_number, :owner, :distributor]
+    [:model, :serial_number, :owner, :distributor]
   end
 end

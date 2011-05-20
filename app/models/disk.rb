@@ -42,7 +42,7 @@ class Disk < ActiveRecord::Base
     [:model, :capacity, :serial_number]
   end
   def self.list_columns
-    [:version, :model, :capacity, :serial_number, :machine, :distributor]
+    [:model, :capacity, :serial_number, :machine, :distributor]
   end
   
 end

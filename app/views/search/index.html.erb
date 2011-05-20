@@ -103,27 +103,27 @@
   <div class="field">
   <h4>Notebooks</h4>
   <%= table(@notebooks) do |t|
-    t.attrs *Notebook.list_columns
+    t.attrs :version, *Notebook.list_columns
     add_table_actions(t)
   end%>
   <h4>Servers</h4>
   <%= table(@servers) do |t|
-    t.attrs *Server.list_columns
+    t.attrs :version, *Server.list_columns
     add_table_actions(t)
   end%>
   <h4>Disks</h4>
   <%= table(@disks) do |t|
-    t.attrs *Disk.list_columns
+    t.attrs :version, *Disk.list_columns
     add_table_actions(t)
   end%>
   <h4>Rams</h4>
   <%= table(@rams) do |t|
-    t.attrs *Ram.list_columns
+    t.attrs :version, *Ram.list_columns
     add_table_actions(t)
   end%>
   <h4>Displays</h4>
   <%= table(@displays) do |t|
-    t.attrs *Display.list_columns
+    t.attrs :version, *Display.list_columns
     add_table_actions(t)
   end%>
 </div>

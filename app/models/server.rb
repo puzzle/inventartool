@@ -43,6 +43,6 @@ class Server < ActiveRecord::Base
     [:name, :model, :processor, :serial_number]
   end
   def self.list_columns
-    [:version, :name, :model, :processor, :serial_number, :distributor]
+    [:name, :model, :processor, :serial_number, :distributor]
   end
 end
