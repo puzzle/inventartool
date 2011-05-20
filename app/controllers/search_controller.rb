@@ -199,7 +199,7 @@ class SearchController < CrudController
   def machine_search(objects)
     objects_list = []
     notebooks = Notebook.where("model LIKE :search_value", :search_value => "%#{params[:machine]}%")
-    servers = Server.where("model LIKE :search_value", :search_value => "%#{params[:machine]}%")
+    servers = Server.where("model LIKE :search_value OR name LIKE :search_value", :search_value => "%#{params[:machine]}%")
     machines = notebooks + servers
     objects.each do |o|
       machines.each do |m|
