@@ -45,6 +45,6 @@ class Notebook < ActiveRecord::Base
     [:model, :processor, :serial_number]
   end
   def self.list_columns
-    [:model, :owner, :service_tag]
+    [:version, :model, :owner, :service_tag]
   end
 end

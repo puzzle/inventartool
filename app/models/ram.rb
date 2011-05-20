@@ -33,6 +33,6 @@ class Ram < ActiveRecord::Base
     [:description, :capacity, :serial_number]
   end
   def self.list_columns
-    [:description, :capacity, :serial_number, :machine]
+    [:version, :description, :capacity, :serial_number, :machine]
   end
 end
