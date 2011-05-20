@@ -60,7 +60,17 @@ class RamsController < CrudController
     set_entry
     @entry.machine_id = nil
     @entry.machine_type = nil
-    detached = save_entry
-    redirect_to :back
+    success = save_entry
+    message = "detached"
+    respond_processed(success, message ) do |format|
+      format.html do 
+        if success
+          request.env["HTTP_REFERER"].present? ? redirect_to(:back) : redirect_to_show
+        else
+          flash.alert = @entry.errors.full_messages.join('<br/>').html_safe
+          request.env["HTTP_REFERER"].present? ? redirect_to(:back) : redirect_to_show
+        end
+      end
+    end
   end
 end

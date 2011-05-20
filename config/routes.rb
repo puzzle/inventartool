@@ -47,6 +47,9 @@ resources :servers, :notebooks, :disks, :rams, :displays, :distributors, :owners
   collection do
     get 'removed'
   end
+  member do
+    get 'restore'
+  end
 end
 
 resources :disks, :rams do

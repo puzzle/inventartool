@@ -17,4 +17,17 @@
 # | # COPYRIGHT HEADER END # 
  %> 
 
-<%= crud_table *model_class.list_columns %>
+<% @title ||= "Listing removed #{models_label}" -%>
+
+<% content_for(:actions, render(:partial => 'actions_index')) %>
+
+<%= render :partial => 'search' if search_support? %>
+
+<%= clear %>
+
+<%= render :partial => 'list' %>
+<%= link_to "Show available", "/#{models_label.downcase}" %>
+<h2>Restore</h2>
+<p>To restore a deleted object go to the Show view of the object and append "/restore" to the url</p>
+
+<%= will_paginate @entries %>

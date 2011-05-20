@@ -28,11 +28,11 @@ module Remove
   end
   
   # List all deleted entries of this model.
-  #   GET /entries/deleted
-  #   GET /entries/deleted.xml
+  #   GET /entries/removed
+  #   GET /entries/removed.xml
   def removed
     @entries = list_entries.removed.paginate(:page => params[:page])
-    respond_with @entries, :index
+    respond_with @entries, :removed
   end
   
   # Destroy an existing entry of this model.
@@ -48,7 +48,24 @@ module Remove
       success = with_callbacks(:destroy) { @entry.destroy }
       message = "destroyed"
     end
-
+    respond_processed(success, message ) do |format|
+      format.html do 
+        if success
+          redirect_to_index
+        else
+          flash.alert = @entry.errors.full_messages.join('<br/>').html_safe
+          request.env["HTTP_REFERER"].present? ? redirect_to(:back) : redirect_to_show
+        end
+      end
+    end
+  end
+  
+  # Restore removed entry
+  def restore
+    set_entry
+    @entry.removed = false;
+    success = save_entry
+    message = "restored"
     respond_processed(success, message ) do |format|
       format.html do 
         if success

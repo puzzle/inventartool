@@ -26,5 +26,6 @@
 <%= clear %>
 
 <%= render :partial => 'list' %>
+<%= link_to "Show removed", "/#{models_label.downcase}/removed" %>
 
 <%= will_paginate @entries %>
