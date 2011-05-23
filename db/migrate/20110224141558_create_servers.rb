@@ -26,7 +26,7 @@ class CreateServers < ActiveRecord::Migration
       t.date :warranty_till
       t.integer :rack_units
       t.string :serial_number
-      t.decimal :price
+      t.decimal :price, :precision => 8, :scale => 2
       t.text :notes
       t.references :distributor
 
