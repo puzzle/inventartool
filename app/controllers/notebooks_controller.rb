@@ -45,4 +45,13 @@ class NotebooksController < CrudController
       @entry.warranty_till = ((@entry.warranty_till - @entry.purchase_date).to_i)/365
     end
   end
+  
+  def unuse
+    set_entry
+    puts @entry.inspect
+    @entry.distributor = nil
+    detached = save_entry
+    redirect_to :back
+  end
+  
 end

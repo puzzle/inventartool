@@ -30,4 +30,13 @@ class DisplaysController < CrudController
   before_save :set_creator
   
   self.search_columns = [:model, :serial_number, :notes]
+  
+  def unuse
+    set_entry
+    puts @entry.inspect
+    @entry.distributor = nil
+    detached = save_entry
+    redirect_to :back
+  end
+  
 end
