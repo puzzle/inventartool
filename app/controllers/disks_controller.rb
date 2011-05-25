@@ -86,4 +86,12 @@ class DisksController < CrudController
     end
   end
   
+  def unuse
+    set_entry
+    puts @entry.inspect
+    @entry.distributor = nil
+    detached = save_entry
+    redirect_to :back
+  end
+  
 end

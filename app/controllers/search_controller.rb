@@ -150,7 +150,7 @@ class SearchController < CrudController
         @displays = @displays & distributor_search(@displays)
       end
      end
-    if (blnCheck == false || params[:standard_searchField] == "" && params[:owner] == "" && params[:distributor] == "")
+    if (blnCheck == false || params[:standard_searchField] == "" && params[:owner] == "" && params[:distributor] == "" && params[:machine] == "")
       @notebooks = Notebook.all
       @servers = Server.all
       @disks = Disk.all
