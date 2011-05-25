@@ -29,7 +29,7 @@ class Server < ActiveRecord::Base
   scope :not_removed, where(:removed => (nil or false))
   
   def label
-    "#{model} #{serial_number}"
+    "#{name} #{model} #{serial_number}"
   end
   
   def age_in_days
