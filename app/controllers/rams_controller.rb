@@ -38,7 +38,7 @@ class RamsController < CrudController
     @a_machines = []
     @a_machines << ["(none)", nil ]
     Notebook.all.each do |machine|
-      @a_machines << ["Notebook: #{machine.label}", "Notebook_#{machine.id}"]
+      @a_machines << ["Notebook: #{machine.label} #{machine.service_tag}", "Notebook_#{machine.id}"]
     end
     Server.all.each do |machine|
       @a_machines << ["Server: #{machine.label}", "Server_#{machine.id}"]
