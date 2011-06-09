@@ -34,7 +34,7 @@ h1. Requirements
 * Knowledge of Rails for Setup
 * More requirements in the Gemfile
 
-Note: This is an apprentice project and is missing tests and reviewing at the moment.
+Note: This is an apprentice project and is missing tests and review at the moment.
 Take the disclaimer above seriously, it may be more than just formality.
 
 h1. Installation and Usage Notes
@@ -46,7 +46,7 @@ h1. Installation and Usage Notes
 # @rake db:migrate@
 # @rails server@
 # Adapt the tool to your needs
-# Share your improvemenents!
+# Share your improvements!
 
 h1. Contact Information
 
