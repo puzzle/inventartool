@@ -1,0 +1,53 @@
+h1. InventarTool
+
+InventarTool is a ruby on rails web application for managing inventory (machines, disks etc.)
+
+Copyright (C) 2011  Puzzle ITC GmbH www.puzzle.ch
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+h1. Features
+
+* Manage machines (servers, notebooks) in a simple web interface.
+* Manage components (disks, rams) and attach them to machines
+* Authentication over LDAP
+* Every change is logged, so you can see what has changed and who made these changes
+* Assign machines to owners
+* Manage warranty duration
+* Search in all your objects, including history
+
+
+h1. Requirements
+
+* Ruby on Rails 3.0
+* Knowledge of Rails for Setup
+* More requirements in the Gemfile
+
+Note: This is an apprentice project and is missing tests and reviewing at the moment.
+Take the disclaimer above seriously, it may be more than just formality.
+
+h1. Installation and Usage Notes
+
+# get it: @git clone git://github.com/puzzle/inventartool.git@
+# set up your Rails environment
+# Config your database.yml and settings.yml (LDAP)
+# @bundle install@
+# @rake db:migrate@
+# @rails server@
+# Adapt the tool to your needs
+# Share your improvemenents!
+
+h1. Contact Information
+
+CopyrightHeaderTool was made by the guys at Puzzle ITC. Please go to "http://www.puzzle.ch/":http://www.puzzle.ch/ in order to get in touch with us.
