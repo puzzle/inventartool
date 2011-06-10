@@ -1,4 +1,4 @@
-#  | # COPYRIGHT HEADER START # 
+<% #  | # COPYRIGHT HEADER START # 
 # |   InventarTool - Web Application to manage hardware and components inventory
 # |   Copyright (C) 2011  Puzzle ITC GmbH www.puzzle.ch
 # |   
@@ -15,19 +15,19 @@
 # |   You should have received a copy of the GNU Affero General Public License
 # |   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 # | # COPYRIGHT HEADER END # 
- 
+ %> 
 
-class StockObject < ActiveRecord::Base
-  
-  acts_as_versioned
-  
-  scope :removed, where(:removed => true)
-  scope :not_removed, where(:removed => (nil or false))
-  
-  def label
-    "#{name}"
-  end
-  def self.list_columns
-    [:name, :count, :change_notice]
-  end
-end
+<%= crud_form(@entry) do |f| %>
+  <% if @entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@entry.errors.count, "error") %> prohibited this ram from being saved:</h2>
+
+      <ul>
+      <% @entry.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= f.labeled_input_fields :name, :count, :comment, :change_notice%>
+<%end%>
