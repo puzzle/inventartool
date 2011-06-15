@@ -118,7 +118,8 @@ class StandardFormBuilder < ActionView::Helpers::FormBuilder
   
   # Render a field to select a date. You might want to customize this.
   def date_field(attr, html_options = {})
-    date_select(attr, {}, html_options)
+    # date_select(attr, {}, html_options)
+    text_field(attr, html_options)
   end
   
   # Render a select element for a :belongs_to association defined by attr.

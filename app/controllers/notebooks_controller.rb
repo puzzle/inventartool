@@ -36,7 +36,8 @@ class NotebooksController < CrudController
   
   def set_warranty
     @warranty_till = (params[model_identifier][:warranty_till]).to_i
-    @purchase_date = Date.parse( {"1i"=>params[model_identifier][:"purchase_date(1i)"], "2i"=>params[model_identifier][:"purchase_date(2i)"], "3i"=>params[model_identifier][:"purchase_date(3i)"]}.to_a.sort.collect{|c| c[1]}.join("-"))
+    @purchase_date = Date.parse((params[model_identifier][:purchase_date]))
+    # @purchase_date = Date.parse( {"1i"=>params[model_identifier][:"purchase_date(1i)"], "2i"=>params[model_identifier][:"purchase_date(2i)"], "3i"=>params[model_identifier][:"purchase_date(3i)"]}.to_a.sort.collect{|c| c[1]}.join("-"))
     params[model_identifier][:warranty_till] = @purchase_date + @warranty_till.years
   end
   
