@@ -37,6 +37,8 @@ class DisksController < CrudController
   before_render_form :set_values
   
   def set_values
+    @entry.purchase_date ||= Date.today
+    @entry.warranty_till ||= Date.today
     @a_machines = []
     @a_machines << ["(none)", nil ]
     Notebook.all.each do |machine|

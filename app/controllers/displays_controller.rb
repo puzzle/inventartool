@@ -28,8 +28,13 @@ class DisplaysController < CrudController
   include Versions
   before_render_show :set_diffhash
   before_save :set_creator
+  before_render_form :set_values
   
   self.search_columns = [:model, :serial_number, :notes]
+  
+  def set_values
+    @entry.purchase_date ||= Date.today
+  end
   
   def unuse
     set_entry
