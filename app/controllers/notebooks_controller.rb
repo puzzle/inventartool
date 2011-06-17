@@ -29,7 +29,7 @@ class NotebooksController < CrudController
   before_render_show :set_diffhash
   before_save :set_creator
   
-  self.search_columns = [:model, :serial_number, :notes, :service_tag]
+  self.search_columns = [:model, :processor, :serial_number, :service_tag, :express_service_code, :previous_owner, :notes, :battery_serial_number, :power_supply_serial_number, :mac_addr_lan, :mac_addr_wlan]
   
   before_filter :set_warranty, :only => [:update, :create]
   before_render_form :set_values
