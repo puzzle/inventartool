@@ -5,6 +5,5 @@ tmp/
 *.class
 *.pyc
 *.pyo
-db/schema.rb
 config/settings.yml
 config/database.yml
