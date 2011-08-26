@@ -21,11 +21,7 @@ class SearchController < CrudController
   
   def index
     @title = "Search"
-    @notebooks = Notebook.all
-    @servers = Server.all
-    @disks = Disk.all
-    @rams = Ram.all
-    @displays = Display.all
+    
     
     params[:notebooks] = "on"
     params[:servers] = "on"

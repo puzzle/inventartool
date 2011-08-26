@@ -21,15 +21,15 @@
   <%= form_tag( {:action => "search"}, {:name => "whole_search"}) %>
     <table>
       <tr>
-        <td><p><input type="checkbox" checked="true" name="notebooks" onclick="special_fields('notebooks')"/> Notebooks</p></td>
-        <td><p><input type="checkbox" checked="true" name="servers" onclick="special_fields('servers')"/> Servers</p></td>
+        <td><p><input type="checkbox" name="notebooks" onclick="special_fields('notebooks')"/> Notebooks</p></td>
+        <td><p><input type="checkbox" name="servers" onclick="special_fields('servers')"/> Servers</p></td>
       </tr>
       <tr>
-        <td><p><input type="checkbox" checked="true" name="disks" onclick="special_fields('disks')"/> Disks</p></td>
-        <td><p><input type="checkbox" checked="true" name="rams" onclick="special_fields('rams')"/> Rams</p></td>
+        <td><p><input type="checkbox" name="disks" onclick="special_fields('disks')"/> Disks</p></td>
+        <td><p><input type="checkbox" name="rams" onclick="special_fields('rams')"/> Rams</p></td>
       </tr>
       <tr>
-        <td><p><input type="checkbox" checked="true" name="displays" onclick="special_fields('displays')"/> Displays</p></td>
+        <td><p><input type="checkbox" name="displays" onclick="special_fields('displays')"/> Displays</p></td>
       </tr>
     </table>
     <p><input type="checkbox" name="removed" /> Search in removed Objects</p>
@@ -39,13 +39,13 @@
         <p class="search_field">Search Value: <input type="text" name="standard_searchField" /></p>
       
       <b>Special Search Attributes</b>
-      <div id="special_field_owner">
+      <div id="special_field_owner" style="display: none">
         <p class="search_field">Owner: <input type="text" name="owner" /></p>
       </div>
-      <div id="special_field_distributor">
+      <div id="special_field_distributor" style="display: none">
         <p class="search_field">Distributor: <input type="text" name="distributor" /></p>
       </div>
-      <div id="special_field_machine">
+      <div id="special_field_machine" style="display: none">
         <p class="search_field">Machine: <input type="text" name="machine" /></p>
       </div>
           <script type="text/javascript">
