@@ -43,6 +43,7 @@ class RamsController < CrudController
     Server.all.each do |machine|
       @a_machines << ["Server: #{machine.label}", "Server_#{machine.id}"]
     end
+    @a_machines = @a_machines.sort
   end
 
   def set_machine

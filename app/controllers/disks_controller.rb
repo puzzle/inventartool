@@ -51,6 +51,7 @@ class DisksController < CrudController
     if (@entry.warranty_till != nil)
       @entry.warranty_till = ((@entry.warranty_till - @entry.purchase_date).to_i)/365
     end
+    @a_machines = @a_machines.sort
   end
 
   def set_machine
