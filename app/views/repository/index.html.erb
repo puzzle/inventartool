@@ -20,15 +20,13 @@
 <div class="field">
   <h3>Rams</h3>
   <%= form_tag( { :action => "attach", }, { :method => :post }) %>
+<%="#{@table_headers.first}"%>
   <table>
   <tr>
     <%@table_headers.each do |a|%>
-    <th><%="#{a}"%></th>
+    <td><h4><%="#{a}"%></h4></td>
     <%end%>
-    <th>Attach?</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <td><h4>Attach?</h4></td>
   </tr>
 
 <% @list.each do |element| %>

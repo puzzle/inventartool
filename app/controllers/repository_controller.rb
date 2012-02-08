@@ -36,12 +36,14 @@ class RepositoryController < CrudController
       @list << "Nothing available"
       @table_headers << "Nothing available"
     else
+    	entries.first.attrs_list.each do |attr|
+    		@table_headers << attr
+    	end
       entries.each do |r|
         element = {}
         attrs = []
         r.attrs_list.each do |attr|
           attrs << r.send(attr)
-          @table_headers << attr
         end
         element[:attrs] = attrs
         element[:id] = r.id
