@@ -28,6 +28,7 @@ class Notebook < ActiveRecord::Base
   
   scope :removed, where(:removed => true)
   scope :not_removed, where(:removed => (nil or false))
+  default_scope :order => 'notebooks.model DESC'
   
   def label
     "#{model}"
