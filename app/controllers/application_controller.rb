@@ -18,6 +18,7 @@
  
 
 require 'net/ldap'
+require 'will_paginate/array'
 
 class ApplicationController < ActionController::Base
   before_filter :load_settings, :authenticate
