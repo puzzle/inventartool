@@ -25,7 +25,7 @@ class Owner < ActiveRecord::Base
   
   scope :removed, where(:removed => true)
   scope :not_removed, where(:removed => (nil or false))
-  default_scope :order => 'owners.name DESC'
+  default_scope :order => 'name'
   
   def label
     "#{name}"

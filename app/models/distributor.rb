@@ -27,7 +27,7 @@ class Distributor < ActiveRecord::Base
   
   scope :removed, where(:removed => true)
   scope :not_removed, where(:removed => (nil or false))
-  default_scope :order => 'created_at ASC'
+  default_scope :order => 'name'
   
   def label
     "#{name}"

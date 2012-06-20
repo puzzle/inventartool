@@ -24,7 +24,7 @@ class Ram < ActiveRecord::Base
   
   scope :removed, where(:removed => true)
   scope :not_removed, where(:removed => (nil or false))
-  default_scope :order => 'rams.description DESC'
+  default_scope :order => 'capacity, description'
   
   def label
     "#{capacity} MB, #{description}"

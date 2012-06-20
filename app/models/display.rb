@@ -25,7 +25,7 @@ class Display < ActiveRecord::Base
   
   scope :removed, where(:removed => true)
   scope :not_removed, where(:removed => (nil or false))
-  default_scope :order => 'displays.model DESC'
+  default_scope :order => 'model, serial_number'
   
   def label
     "#{model}"

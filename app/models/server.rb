@@ -27,7 +27,7 @@ class Server < ActiveRecord::Base
   
   scope :removed, where(:removed => true)
   scope :not_removed, where(:removed => (nil or false))
-  default_scope :order => 'servers.model DESC'
+  default_scope :order => 'name'
   
   def label
     "#{name} #{model} #{serial_number}"
