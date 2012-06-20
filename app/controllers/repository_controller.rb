@@ -30,10 +30,14 @@ class RepositoryController < CrudController
     else
       entries = Disk.where("machine_id IS Null")
     end
-    if (entries != nil)
+
+    @table_headers = []
+    if (entries.first == nil)
+      @list << "Nothing available"
+      @table_headers << "Nothing available"
+    else
       entries.each do |r|
         element = {}
-        @table_headers = []
         attrs = []
         r.attrs_list.each do |attr|
           attrs << r.send(attr)
