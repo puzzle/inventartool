@@ -20,7 +20,7 @@
 class RepositoryController < CrudController
   
   def index
-    @title = "Repository"
+    @title = "Attach Components"
     @list = []
     @components = params[:entry]
     @machine_id = params[:id]
@@ -32,13 +32,10 @@ class RepositoryController < CrudController
     end
 
     @table_headers = []
-    if (entries.first == nil)
-      @list << "Nothing available"
-      @table_headers << "Nothing available"
-    else
-    	entries.first.attrs_list.each do |attr|
-    		@table_headers << attr
-    	end
+    unless entries.empty?
+      entries.first.attrs_list.each do |attr|
+        @table_headers << attr
+      end
       entries.each do |r|
         element = {}
         attrs = []

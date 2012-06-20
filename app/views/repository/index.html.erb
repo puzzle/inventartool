@@ -16,31 +16,32 @@
 # |   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 # | # COPYRIGHT HEADER END # 
  %> 
+<% unless @list.empty? %>
+  <div class="field">
+    <%= form_tag( { :action => "attach", }, { :method => :post }) %>
+    <table>
+    <tr>
+      <%@table_headers.each do |field|%>
+      <td><h4><%="#{field}"%></h4></td>
+      <%end%>
+      <td><h4>Attach?</h4></td>
+    </tr>
 
-<div class="field">
-  <h3>Rams</h3>
-  <%= form_tag( { :action => "attach", }, { :method => :post }) %>
-<%="#{@table_headers.first}"%>
-  <table>
-  <tr>
-    <%@table_headers.each do |a|%>
-    <td><h4><%="#{a}"%></h4></td>
-    <%end%>
-    <td><h4>Attach?</h4></td>
-  </tr>
-
-<% @list.each do |element| %>
-  <tr>
-    <% element[:attrs].each do |attr| %>
-      <td><%= attr %></td>
-    <%end%>
-    <td><%= check_box("#{element[:id]}", "attach",{}) %></td>
-  </tr>
+  <% @list.each do |element| %>
+    <tr>
+      <% element[:attrs].each do |attr| %>
+        <td><%= attr %></td>
+      <%end%>
+      <td><%= check_box("#{element[:id]}", "attach",{}) %></td>
+    </tr>
+  <% end %>
+  </table>
+  <input type="hidden" name="id" value="<%= @machine_id%>">
+  <input type="hidden" name="machine_type" value="<%= @machine_type%>">
+  <input type="hidden" name="components" value="<%= @components%>">
+  <%= submit_tag "Save"%>
+  </form>
+  </div>
+<% else %>
+  No Components available to attach!
 <% end %>
-</table>
-<input type="hidden" name="id" value="<%= @machine_id%>">
-<input type="hidden" name="machine_type" value="<%= @machine_type%>">
-<input type="hidden" name="components" value="<%= @components%>">
-<%= submit_tag "Save"%>
-</form>
-</div>
